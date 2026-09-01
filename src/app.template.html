@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="de95b5f3-ddd9-4952-9b90-0a6a724f279b"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("b4cb942d-e800-4460-8997-7d5deb1b41c9") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("0d4f1eac-aea1-471c-9392-c09c4e388c0b") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("f4ca7464-24e0-4f57-9bd1-1c5346c295aa") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("cd6fd6aa-840d-4609-a10e-5371b76dd56a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("5d1ed31f-bd6b-4872-8a2d-54a0c2322c9d") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("0f5eae91-7de9-49f2-8154-64e5d457b331") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("f0956e7e-3e3b-4501-9dfe-957a072019ac") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body { font-family: "Inter", -apple-system, "Helvetica Neue", sans-serif; font-optical-sizing: auto; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #767676; }
+  ::selection { background: rgba(29, 155, 240, 0.22); }
+  textarea::placeholder, input::placeholder { color: #b4b4b4; }
+</style>
+</helmet>
+
+<div data-screen-label="Slide" sc-camel-on-click="{{ rootClick }}" style="position: relative; min-height: 100vh; color: #0a0a0a; font-size: 12px; line-height: 1.55;">
+  <div sc-camel-on-click="{{ gotoActivity }}" style="position: fixed; z-index: 1; left: 36px; top: 26px; font-size: 19px; font-weight: 400; font-variation-settings: 'opsz' 32; letter-spacing: -0.03em; line-height: 1; color: #111111; cursor: pointer; user-select: none;">slide</div>
+  <aside style="position: fixed; z-index: 1; left: 36px; top: 84px; width: 178px; display: flex; flex-direction: column; align-items: flex-start;">
+    <div sc-camel-on-click="{{ gotoAutomations }}" style="display: flex; align-items: center; gap: 8px; color: {{ navAutoColor }}; cursor: pointer;" style-hover="color: #111111;">
+      <svg data-icon="nav-automations" width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"></path></svg>
+      <span>Automations</span>
+    </div>
+    <div sc-camel-on-click="{{ gotoActivity }}" style="margin-top: 12px; display: flex; align-items: center; gap: 8px; color: {{ navActColor }}; cursor: pointer;" style-hover="color: #111111;">
+      <svg data-icon="nav-activity" width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14l11 -11"></path><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"></path></svg>
+      <span>Activity</span>
+    </div>
+  </aside>
+  <aside style="position: fixed; z-index: 1; left: 36px; bottom: 40px; display: flex; flex-direction: column; align-items: flex-start;">
+    <div sc-camel-on-click="{{ gotoSettings }}" style="display: flex; align-items: center; gap: 8px; color: {{ navSetColor }}; cursor: pointer;" style-hover="color: #111111;">
+      <svg data-icon="nav-settings" width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065"></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path></svg>
+      <span>Settings</span>
+    </div>
+  </aside>
+  <main style="box-sizing: border-box; position: relative; z-index: 1; margin-left: clamp(260px, 38vw, 540px); padding: 76px 56px 96px 0; max-width: 620px;">
+    <sc-if value="{{ showAutomations }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Automations">
+        <h1 style="margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -0.01em;">Automations</h1>
+        <div style="margin-top: 36px; display: flex; flex-direction: column; gap: 40px;">
+          <sc-for list="{{ automationGroups }}" as="g" hint-placeholder-count="2">
+            <div>
+              <div style="display: flex; align-items: center; gap: 7px;">
+                <img ref="{{ g.imgRef }}" alt="" style="width: 18px; height: 18px; border-radius: 9px; background: #ececec; flex-shrink: 0; display: block;">
+                <span style="font-size: 11.5px; font-weight: 500; color: #111111; white-space: nowrap;">{{ g.name }}</span>
+                <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
+                <span style="font-size: 11px; color: #a3a3a3; white-space: nowrap;">{{ g.handle }}</span>
+                <div style="flex: 1;"></div>
+                <div sc-camel-on-click="{{ g.onAdd }}" style="display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 7px; background: #111111; color: #ffffff; font-size: 11.5px; cursor: pointer; user-select: none; flex-shrink: 0;" style-hover="background: #2a2a2e;"><svg data-icon="plus" width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg><span>Add automation</span></div>
+              </div>
+              <sc-if value="{{ g.hasAutos }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
+                  <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="1">
+    <div sc-camel-on-click="{{ r.onEdit }}" style="display: flex; align-items: center; gap: 16px; border: 1px solid #ebebeb; border-radius: 12px; padding: 14px 18px; cursor: pointer;" style-hover="border-color: #d5d5d5;">
+                    <div style="display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0;">
+                      <div style="color: #111111; font-weight: 500;">{{ r.title }}</div>
+                      <div style="color: #8c8c8c; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ r.preview }}</div>
+                    </div>
+                    <div style="color: #c7c7c7; font-size: 11.5px; flex-shrink: 0;">{{ r.updated }}</div>
+                    <div style="display: {{ r.liveDisplay }}; color: #00875a; font-size: 11.5px; flex-shrink: 0;">Live</div>
+                    <div sc-camel-on-click="{{ r.onToggle }}" style="width: 30px; height: 18px; border-radius: 9px; background: {{ r.toggleBg }}; position: relative; cursor: pointer; transition: background 0.15s ease; flex-shrink: 0;">
+                      <div style="position: absolute; top: 2px; left: {{ r.knobLeft }}; width: 14px; height: 14px; border-radius: 7px; background: #ffffff; transition: left 0.15s ease;"></div>
+                    </div>
+                  </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+              <sc-if value="{{ g.isEmpty }}" hint-placeholder-val="{{ false }}">
+                <div sc-camel-on-click="{{ g.onAdd }}" style="margin-top: 16px; border: 1px dashed #e8e8e8; border-radius: 12px; padding: 22px 24px; display: flex; justify-content: center; color: #c2c2c2; cursor: pointer;" style-hover="border-color: #d5d5d5; color: #767676;">No automations yet</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ noAccounts }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top: 36px; color: #c7c7c7;">No accounts connected. Add one in Settings.</div>
+        </sc-if>
+      </div>
+    </sc-if>
+    <sc-if value="{{ showActivity }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="Activity">
+        <!-- baseline, not centre: the triggers are 11.5px against a 15px heading,
+             so centring their line boxes leaves the text sitting visibly high. -->
+        <div style="display: flex; align-items: baseline; gap: 18px;">
+          <h1 style="margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -0.01em;">Activity</h1>
+          <div style="flex: 1;"></div>
+          <div style="position: relative;">
+            <div sc-camel-on-click="{{ toggleTypeMenu }}" style="display: flex; align-items: center; gap: 6px; color: #767676; cursor: pointer; user-select: none; font-size: 11.5px;" style-hover="color: #111111;">
+              <span>{{ actTypeLabel }}</span>
+              <svg data-icon="chevron-down" width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.6;"><path d="M6 9l6 6l6 -6"></path></svg>
+            </div>
+            <sc-if value="{{ showTypeMenu }}" hint-placeholder-val="{{ false }}">
+              <div sc-camel-on-click="{{ eatMenuClick }}" style="position: absolute; top: calc(100% + 10px); right: -6px; background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 6px; min-width: 168px; display: flex; flex-direction: column; z-index: 6;">
+                <sc-for list="{{ typeFilterOpts }}" as="opt" hint-placeholder-count="4">
+                  <div sc-camel-on-click="{{ opt.onPick }}" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 7px; color: #111111; cursor: pointer;" style-hover="background: #f6f6f6;">
+                    <span>{{ opt.label }}</span>
+                    <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+          <div style="position: relative;">
+            <div sc-camel-on-click="{{ toggleActMenu }}" style="display: flex; align-items: center; gap: 6px; color: #767676; cursor: pointer; user-select: none; font-size: 11.5px;" style-hover="color: #111111;">
+              <span>{{ actAccountLabel }}</span>
+              <svg data-icon="chevron-down" width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.6;"><path d="M6 9l6 6l6 -6"></path></svg>
+            </div>
+            <sc-if value="{{ showActMenu }}" hint-placeholder-val="{{ false }}">
+              <div sc-camel-on-click="{{ eatMenuClick }}" style="position: absolute; top: calc(100% + 10px); right: -6px; background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 6px; min-width: 232px; display: flex; flex-direction: column; z-index: 6;">
+                <sc-for list="{{ accountFilterOpts }}" as="opt" hint-placeholder-count="3">
+                  <div sc-camel-on-click="{{ opt.onPick }}" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 7px; color: #111111; cursor: pointer;" style-hover="background: #f6f6f6;">
+                    <span style="display: flex; align-items: center; gap: 7px; min-width: 0;">
+                      <img ref="{{ opt.imgRef }}" alt="" style="display: {{ opt.avatarDisplay }}; width: 18px; height: 18px; border-radius: 9px; background: #ececec; flex-shrink: 0;">
+                      <span style="font-weight: 500; white-space: nowrap;">{{ opt.label }}</span>
+                      <span style="display: {{ opt.badgeDisplay }}; align-items: center; flex-shrink: 0;"><svg data-icon="verified" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
+                      <span style="display: {{ opt.handleDisplay }}; color: #a3a3a3; white-space: nowrap;">{{ opt.handle }}</span>
+                    </span>
+                    <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #f0f0f0; margin-top: 20px;"></div>
+        <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 4px;">
+          <sc-for list="{{ eventsList }}" as="ev" hint-placeholder-count="3">
+            <div>
+              <div style="display: {{ ev.dayDisplay }}; color: #c7c7c7; font-size: 11.5px; margin: 14px 0 10px;">{{ ev.day }}</div>
+              <div sc-camel-on-click="{{ ev.onRow }}" style="display: flex; align-items: center; gap: 14px; padding: 6px 8px; margin: 0 -8px; border-radius: 8px; cursor: {{ ev.cursor }};" style-hover="background: {{ ev.hoverBg }};">
+                <div style="color: #a3a3a3; min-width: 92px; flex-shrink: 0; font-size: 11.5px;">{{ ev.account }}</div>
+                <span style="display: {{ ev.iconF }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #bfbfbf;"><svg data-icon="event-follow" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg></span>
+                <span style="display: {{ ev.iconD }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #bfbfbf;"><svg data-icon="event-sent" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path></svg></span>
+                <span style="display: {{ ev.iconC }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #bfbfbf; position: relative;"><svg data-icon="event-scheduled" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path></svg><span style="position: absolute; right: -3px; bottom: -3px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-clock" width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 7v5l3 3"></path></svg></span></span>
+                <span style="display: {{ ev.iconP }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #2e9be8;"><svg data-icon="event-auto-added" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg></span>
+                <span style="display: {{ ev.iconA }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #2e9be8;"><svg data-icon="event-account-added" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 8l0 8"></path><path d="M8 12l8 0"></path></svg></span>
+                <span style="display: {{ ev.iconS }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #2e9be8;"><svg data-icon="event-system" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg></span>
+                <span style="color: {{ ev.textColor }}; flex-shrink: 0;">{{ ev.text }}</span>
+                <span style="display: {{ ev.chipDisplay }}; align-items: center; gap: 6px; min-width: 0;">
+                  <img ref="{{ ev.chipRef }}" alt="" style="width: 16px; height: 16px; border-radius: 8px; background: #ececec; flex-shrink: 0; display: block;">
+                  <span style="color: #111111; font-weight: 500; white-space: nowrap;">{{ ev.chipName }}</span>
+                  <span style="display: {{ ev.chipBadge }}; align-items: center; flex-shrink: 0;"><svg data-icon="verified" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
+                  <span style="color: #a3a3a3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ ev.chipHandle }}</span>
+                </span>
+                <span style="display: {{ ev.detailDisplay }}; color: #c7c7c7; flex-shrink: 0;">{{ ev.detail }}</span>
+                <div style="flex: 1;"></div>
+                <div style="color: #c7c7c7; flex-shrink: 0;">{{ ev.time }}</div>
+              </div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ actEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="color: #c7c7c7;">Nothing here.</div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ showSettings }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Settings">
+        <h1 style="margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -0.01em;">Settings</h1>
+        <div style="margin-top: 44px; color: #c7c7c7; font-size: 11.5px;">Accounts</div>
+        <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
+          <sc-for list="{{ settingsAccounts }}" as="sa" hint-placeholder-count="2">
+            <div style="display: flex; align-items: center; gap: 7px; width: 100%;">
+              <img ref="{{ sa.imgRef }}" alt="" style="width: 18px; height: 18px; border-radius: 9px; background: #ececec; flex-shrink: 0; display: block;">
+              <span style="font-size: 11.5px; font-weight: 500; color: #111111; white-space: nowrap;">{{ sa.name }}</span>
+              <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
+              <span style="font-size: 11px; color: #a3a3a3; white-space: nowrap;">{{ sa.handle }}</span>
+              <div style="flex: 1;"></div>
+              <div sc-camel-on-click="{{ sa.onRemove }}" style="color: #ee000f; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="color: #b8000c;">Remove</div>
+            </div>
+          </sc-for>
+          <div sc-camel-on-click="{{ addAccount }}" style="margin-top: 6px; display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: #0a0a0a; border: 1px solid #e8e8e8; border-radius: 7px; padding: 4px 10px; cursor: pointer; user-select: none;" style-hover="border-color: #c7c7c7;"><svg data-icon="plus" width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg><span>Add account</span></div>
+        </div>
+        <div style="border-top: 1px solid #f0f0f0; margin-top: 36px;"></div>
+        <div style="margin-top: 26px; display: flex; flex-direction: column; align-items: flex-start;">
+          <span style="color: #111111; cursor: pointer;" style-hover="color: #767676;">Sign out</span>
+          <div style="margin-top: 32px;">
+            <div sc-camel-on-click="{{ deleteAccount }}" style="display: inline-block; color: #ee000f; cursor: pointer; user-select: none;" style-hover="color: #b8000c;">Delete account</div>
+            <div style="margin-top: 3px; color: #a3a3a3; font-size: 11.5px;">Permanently removes your accounts, automations and activity.</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </main>
+  <sc-if value="{{ showFade }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; left: clamp(260px, 38vw, 540px); right: 0; bottom: 0; height: 76px; background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0)); pointer-events: none; z-index: 2;"></div>
+  </sc-if>
+  <sc-if value="{{ showModal }}" hint-placeholder-val="{{ false }}">
+    <div sc-camel-on-click="{{ closeModal }}" style="position: fixed; inset: 0; background: rgba(246, 246, 246, 0.88); display: flex; justify-content: center; align-items: flex-start; padding-top: 21vh; z-index: 10;">
+      <div sc-camel-on-click="{{ eatClick }}" data-screen-label="Modal" style="width: {{ modalW }}; max-width: calc(100vw - 48px); box-sizing: border-box; background: #ffffff; border: 1px solid #ebebeb; border-radius: 14px; padding: 26px 28px 18px;">
+        <sc-if value="{{ stepType }}" hint-placeholder-val="{{ false }}">
+          <div style="color: #a3a3a3; font-size: 11.5px;">Add automation</div>
+          <div style="margin-top: 18px; padding-bottom: 10px; display: flex; flex-direction: column; gap: 8px;">
+            <div sc-camel-on-click="{{ pickDmType }}" style="border: 1px solid #ebebeb; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer;" style-hover="border-color: #d5d5d5; background: #fafafa;">
+              <span style="display: flex; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-new-followers" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-follower" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg></span></span>
+              <div style="flex: 1; min-width: 0;">
+                <div style="color: #111111; font-weight: 500;">Send message to new followers</div>
+                <div style="margin-top: 4px; color: #8c8c8c; font-size: 11.5px;">Sends your message when someone follows the account</div>
+              </div>
+            </div>
+            <div sc-camel-on-click="{{ pickSlackType }}" style="border: 1px solid #ebebeb; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer;" style-hover="border-color: #d5d5d5; background: #fafafa;">
+              <span style="display: flex; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-slack" width="15" height="15" sc-camel-view-box="0 0 24 24"></svg></span>
+              <div style="flex: 1; min-width: 0;">
+                <div style="color: #111111; font-weight: 500;">Message to Slack channel after post</div>
+                <div style="margin-top: 4px; color: #8c8c8c; font-size: 11.5px;">Posts a message to your Slack channel when you publish</div>
+              </div>
+            </div>
+            <sc-for list="{{ comingSoon }}" as="cs" hint-placeholder-count="3">
+              <div style="border: 1px solid #f0f0f0; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; opacity: 0.55; user-select: none;">
+                <span style="display: {{ cs.iconComment }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-comment" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14l-4 -4l4 -4M5 10h9a5 5 0 0 1 5 5v3"></path></svg></span>
+                <span style="display: {{ cs.iconKeyword }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-keyword" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-dots" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h.01M12 12h.01M18 12h.01"></path></svg></span></span>
+                <span style="display: {{ cs.iconRepost }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-repost" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3M20 12v3a3 3 0 0 1 -3 3h-13m3 3l-3 -3l3 -3"></path></svg></span>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="color: #111111; font-weight: 500;">{{ cs.title }}</div>
+                  <div style="margin-top: 4px; color: #8c8c8c; font-size: 11.5px;">{{ cs.desc }}</div>
+                </div>
+                <div style="color: #a3a3a3; font-size: 11px; flex-shrink: 0; margin-top: 1px;">Coming soon</div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ stepConfig }}" hint-placeholder-val="{{ false }}">
+          <div style="color: #a3a3a3; font-size: 11.5px;">{{ configLabel }}</div>
+          <div style="margin-top: 20px; font-size: 13px;">{{ triggerCopy }}</div>
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px;">
+            <div style="position: relative;">
+              <div sc-camel-on-click="{{ toggleChipMenu }}" style="display: inline-flex; align-items: center; gap: 6px; color: #111111; border: 1px solid #e8e8e8; padding: 2px 9px; border-radius: 6px; cursor: pointer; user-select: none; font-size: 12px;" style-hover="border-color: #d5d5d5;">
+                <span>{{ chipLabel }}</span>
+                <svg data-icon="chevron-down" width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.6;"><path d="M6 9l6 6l6 -6"></path></svg>
+              </div>
+              <sc-if value="{{ showChipMenu }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; top: calc(100% + 8px); left: 0; background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 6px; min-width: 176px; display: flex; flex-direction: column; z-index: 20;">
+                  <sc-for list="{{ chipOpts }}" as="opt" hint-placeholder-count="5">
+                    <div sc-camel-on-click="{{ opt.onPick }}" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 7px; color: #111111; cursor: pointer; font-size: 12px;" style-hover="background: #f6f6f6;">
+                      <span>{{ opt.label }}</span>
+                      <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+            <span>{{ thenCopy }}</span>
+          </div>
+          <div style="margin-top: 14px; border: 1px solid #ececec; border-radius: 10px; background: #fafafa; padding: 12px 14px;">
+            <div style="position: relative; height: 88px;">
+              <div ref="{{ mirrorRef }}" style="position: absolute; inset: 0; overflow: hidden; white-space: pre-wrap; overflow-wrap: break-word; font-family: inherit; font-size: 12px; line-height: 1.6; pointer-events: none;"><sc-for list="{{ msgSegs }}" as="seg" hint-placeholder-count="1"><span style="color: {{ seg.col }}; background: {{ seg.bg }}; border-radius: 4px;">{{ seg.t }}</span></sc-for></div>
+              <textarea ref="{{ msgRef }}" value="{{ msgVal }}" sc-camel-on-change="{{ setMsg }}" sc-camel-on-scroll="{{ onMsgScroll }}" sc-camel-auto-focus="{{ true }}" placeholder="{{ msgPlaceholder }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; outline: none; resize: none; padding: 0; font-family: inherit; font-size: 12px; line-height: 1.6; color: transparent; caret-color: #111111; background: transparent; box-sizing: border-box; white-space: pre-wrap; overflow-wrap: break-word;"></textarea>
+            </div>
+          </div>
+          <div style="position: relative; display: flex; align-items: center; gap: 8px; margin-top: 10px; padding-bottom: 12px;">
+            <div style="color: #c2c2c2; font-size: 11.5px; margin-right: 6px;">{{ varsLabel }}</div>
+            <sc-for list="{{ varOpts }}" as="v" hint-placeholder-count="2">
+              <div sc-camel-on-click="{{ v.onInsert }}" style="position: relative; color: #2f5fc4; background: rgba(47, 95, 196, 0.08); padding: 2px 9px; border-radius: 6px; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="background: rgba(47, 95, 196, 0.14);">{{ v.token }}</div>
+            </sc-for>
+          </div>
+          <div style="border-top: 1px solid #f0f0f0;"></div>
+          <div style="margin-top: 14px; display: flex; align-items: center; gap: 24px;">
+            <sc-if value="{{ showDelete }}" hint-placeholder-val="{{ false }}">
+              <div sc-camel-on-click="{{ deleteAuto }}" style="color: #ee000f; cursor: pointer; user-select: none;" style-hover="color: #b8000c;">Delete</div>
+            </sc-if>
+            <div style="flex: 1;"></div>
+            <div sc-camel-on-click="{{ submit }}" style="padding: 4px 12px; border-radius: 7px; background: {{ submitBg }}; color: {{ submitColor }}; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="background: {{ submitHoverBg }};">{{ submitLabel }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ stepLive }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size: 13.5px; font-weight: 500; color: #111111;">Set it live?</div>
+          <div style="margin-top: 8px; color: #8c8c8c; font-size: 11.5px;">{{ liveCopy }}</div>
+          <div style="margin-top: 20px; display: flex; align-items: center; justify-content: flex-end; gap: 20px; padding-bottom: 4px;">
+            <div sc-camel-on-click="{{ closeModal }}" style="color: #a3a3a3; cursor: pointer; user-select: none;" style-hover="color: #111111;">Cancel</div>
+            <div sc-camel-on-click="{{ confirmLive }}" style="padding: 4px 12px; border-radius: 7px; background: #00ba7c; color: #ffffff; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="background: #00a06e;">Set live</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showToast }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); background: #111111; color: #ffffff; border-radius: 8px; padding: 9px 14px; display: flex; align-items: center; gap: 18px; z-index: 40; font-size: 11.5px; white-space: nowrap;">
+      <span>{{ toastMsg }}</span>
+      <span sc-camel-on-click="{{ undoToast }}" style="display: {{ toastUndoDisplay }}; color: #8c8c8c; cursor: pointer; user-select: none;" style-hover="color: #ffffff;">Undo</span>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{
+  &quot;emptyState&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;State&quot;},
+  &quot;showComingSoon&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;State&quot;}
+}">
+const TYPE_LABELS = { follow: 'Follows', dm: 'Messages', system: 'System' };
+class Component extends DCLogic {
+  // actAccounts holds the handles the activity list is narrowed to. Empty means
+  // every account, so selecting all of them collapses back to [] rather than
+  // carrying a list that says the same thing.
+  state = { view: 'activity', autos: null, accounts: null, events: null, modal: null, actTypes: [], actAccounts: [], actMenu: null, toast: null };
+  seed() {
+    return (this.props.emptyState ?? false) ? [] : [
+      { id: 1, kind: 'dm', type: 'Send message to new followers', account: '@slidehq', delay: 60, active: true, everLive: true, updated: '2d',
+        msg: "Hey {name} — thanks for the follow. If you're curious what we're building, reply here and I'll send you early access." }
+    ];
+  }
+  slackChannels() { return ['#marketing-pod', '#general', '#launches']; }
+  seedAccounts() { return [{ handle: '@slidehq', name: 'Slide' }, { handle: '@martinfrost', name: 'Martin Frost' }]; }
+  pool() { return [{ handle: '@lukemiler', name: 'Luke Miler' }, { handle: '@noralindt', name: 'Nora Lindt' }, { handle: '@fieldframe', name: 'Field & Frame' }]; }
+  users() { return { '@torvald_k': 'Torvald Keller', '@ana_builds': 'Ana Builds', '@jkraft': 'Jonas Kraft', '@renata_io': 'Renata Alves', '@moss_dev': 'Sam Moss', '@field_notes': 'Field Notes', '@paulsen_dev': 'Erik Paulsen', '@lukemiler': 'Luke Miler', '@noralindt': 'Nora Lindt', '@fieldframe': 'Field & Frame' }; }
+  verifiedUsers() { return { '@ana_builds': true, '@renata_io': true, '@lukemiler': true }; }
+  userName(h) { return this.users()[h] || this.cap(h.slice(1)); }
+  avatar(handle) {
+    const res = window.__resources || {};
+    if (handle === '@slidehq') return res['av-slidehq'] || 'https://images.pexels.com/photos/15393590/pexels-photo-15393590.jpeg?auto=compress&w=96&h=96&fit=crop';
+    if (handle === '@martinfrost') return res['av-martin'] || './uploads/pasted-1787011246299-0.png';
+    const px = { '@torvald_k': 2379004, '@ana_builds': 1239291, '@jkraft': 91227, '@renata_io': 415829, '@moss_dev': 220453, '@field_notes': 774909, '@paulsen_dev': 614810, '@lukemiler': 1222271, '@noralindt': 733872, '@fieldframe': 1681010 };
+    if (px[handle]) return res['av' + px[handle]] || ('https://images.pexels.com/photos/' + px[handle] + '/pexels-photo-' + px[handle] + '.jpeg?auto=compress&w=96&h=96&fit=crop');
+    const name = this.userName(handle);
+    const pal = ['#e9e4dc', '#dfe7e2', '#e3e5ee', '#ece2e6', '#e8e8df'];
+    let sum = 0; for (let i = 0; i < handle.length; i++) sum += handle.charCodeAt(i);
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" fill="' + pal[sum % pal.length] + '"/><text x="48" y="61" font-family="Inter,sans-serif" font-size="38" text-anchor="middle" fill="#77716b">' + name.charAt(0).toUpperCase() + '</text></svg>';
+    return 'data:image/svg+xml,' + encodeURIComponent(svg);
+  }
+  seedEvents() {
+    const f = (id, account, target, time, day) => ({ id, kind: 'follow', account, target, text: 'New follower', time, day, link: { t: 'profile', h: target } });
+    const s = (id, account, target, time, day) => ({ id, kind: 'sent', account, target, text: 'Message sent', time, day, link: { t: 'messages' } });
+    return [
+      f(1, '@slidehq', '@torvald_k', '2m', 'Today'),
+      { id: 2, kind: 'sched', account: '@slidehq', target: '@torvald_k', text: 'Message scheduled', detail: '· sends in 58 min', time: '2m', day: 'Today' },
+      s(3, '@martinfrost', '@ana_builds', '1h', 'Today'),
+      f(4, '@martinfrost', '@ana_builds', '2h', 'Today'),
+      s(5, '@slidehq', '@jkraft', '5h', 'Today'),
+      f(6, '@slidehq', '@jkraft', '6h', 'Today'),
+      f(7, '@slidehq', '@renata_io', '1d', 'Yesterday'),
+      s(8, '@slidehq', '@renata_io', '1d', 'Yesterday'),
+      f(9, '@martinfrost', '@moss_dev', '1d', 'Yesterday'),
+      s(10, '@martinfrost', '@moss_dev', '1d', 'Yesterday'),
+      f(11, '@slidehq', '@field_notes', '1d', 'Yesterday'),
+      { id: 12, kind: 'autoAdded', account: '@slidehq', text: 'Automation added · Send message to new followers', time: '1d', day: 'Yesterday', link: { t: 'autos', account: '@slidehq', autoId: 1 } },
+      s(13, '@martinfrost', '@paulsen_dev', '2d', 'Aug 17'),
+      f(14, '@martinfrost', '@paulsen_dev', '2d', 'Aug 17'),
+      { id: 15, kind: 'acctAdded', account: '@martinfrost', text: 'Account added', time: '3d', day: 'Aug 16', link: { t: 'profile', h: '@martinfrost' } },
+    ];
+  }
+  cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+  autos() { return this.state.autos ?? this.seed(); }
+  accounts() { return this.state.accounts ?? this.seedAccounts(); }
+  events() { return this.state.events ?? this.seedEvents(); }
+  ev(account, text, kind, link) { return { id: Date.now() + Math.random(), kind: kind || 'system', account, text, target: null, detail: null, time: 'now', day: 'Today', link: link || null }; }
+  listDelay(d) { return d === 0 ? 'Immediately' : (d === 60 ? 'After 1 hour' : 'After ' + d + ' min'); }
+  delayPhrase(d) { return d === 0 ? 'immediately' : (d === 60 ? 'wait 1 hour' : 'wait ' + d + ' minute' + (d > 1 ? 's' : '')); }
+  showToast(msg, snap) {
+    clearTimeout(this._toastT);
+    this.setState({ toast: { msg, snap: snap || null } });
+    this._toastT = setTimeout(() => this.setState({ toast: null }), 5000);
+  }
+  componentWillUnmount() { clearTimeout(this._toastT); }
+  accountName(handle) { const a = this.accounts().find((x) => x.handle === handle); return a ? a.name : handle; }
+  filterGroup(kind) { return kind === 'follow' ? 'follow' : (kind === 'sent' || kind === 'sched' ? 'dm' : 'system'); }
+  // Three tiers so the list scans at a glance: what happened (black), what is
+  // still pending (grey), and housekeeping (blue). Housekeeping differs in hue
+  // rather than weight because it is a different kind of line, not a less
+  // important one. Derived from filterGroup so the colours cannot drift away
+  // from what the System tab collects.
+  eventTone(kind) {
+    if (kind === 'sched') return '#8c8c8c';
+    return this.filterGroup(kind) === 'system' ? '#0078d6' : '#111111';
+  }
+  renderVals() {
+    const m = this.state.modal;
+    const view = this.state.view;
+    const set = (patch) => this.setState({ modal: Object.assign({}, m, patch) });
+    const actAccounts = this.state.actAccounts;
+    const everyAccount = actAccounts.length === 0;
+    const actTypes = this.state.actTypes;
+    const everyType = actTypes.length === 0;
+    const filteredEvents = this.events().filter((e2) => (everyType || actTypes.indexOf(this.filterGroup(e2.kind)) !== -1) && (everyAccount || actAccounts.indexOf(e2.account) !== -1));
+    // One section per account, in place of the sidebar list that used to pick
+    // between them. Accounts with nothing yet still get a header and an Add
+    // button — hide them and there is no way to create their first automation.
+    const automationGroups = this.accounts().map((acc) => {
+      const rows = this.autos().filter((a) => a.account === acc.handle).map((a) => ({
+        key: a.id,
+        title: a.type,
+        preview: (a.kind === 'slack' ? a.channel : this.listDelay(a.delay)) + ' · \u201C' + a.msg + '\u201D',
+        updated: a.updated || '2d',
+        liveDisplay: a.active ? 'block' : 'none',
+        toggleBg: a.active ? '#00ba7c' : '#dbdbdb',
+        knobLeft: a.active ? '14px' : '2px',
+        onToggle: (e) => {
+          e.stopPropagation();
+          if (a.active) {
+            this.setState({
+              autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: false, updated: 'now' }) : x),
+              events: [this.ev(a.account, 'Automation paused')].concat(this.events()),
+            });
+          } else if (a.everLive) {
+            this.setState({
+              autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: true, updated: 'now' }) : x),
+              events: [this.ev(a.account, 'Automation set live')].concat(this.events()),
+            });
+          } else {
+            this.setState({ modal: { step: 'live', id: a.id } });
+          }
+        },
+        onEdit: () => this.setState({ modal: { step: 'config', kind: a.kind || 'dm', account: a.account, id: a.id, msg: a.msg, delay: a.delay, channel: a.channel, menu: null } }),
+      }));
+      return {
+        key: acc.handle,
+        name: acc.name,
+        handle: acc.handle,
+        imgRef: (el) => { if (el) el.src = this.avatar(acc.handle); },
+        rows,
+        hasAutos: rows.length > 0,
+        isEmpty: rows.length === 0,
+        onAdd: (e) => { e.stopPropagation(); this.setState({ modal: { step: 'type', account: acc.handle } }); },
+      };
+    });
+    const inConfig = !!m && m.step === 'config';
+    const isSlack = inConfig && m.kind === 'slack';
+    const canSubmit = inConfig && !!(m.msg && m.msg.trim());
+    return {
+      showAutomations: view === 'automations',
+      showActivity: view === 'activity',
+      showSettings: view === 'settings',
+      navAutoColor: view === 'automations' ? '#111111' : '#a3a3a3',
+      navActColor: view === 'activity' ? '#111111' : '#a3a3a3',
+      navSetColor: view === 'settings' ? '#111111' : '#a3a3a3',
+      gotoAutomations: () => this.setState({ view: 'automations' }),
+      gotoActivity: () => this.setState({ view: 'activity' }),
+      gotoSettings: () => this.setState({ view: 'settings' }),
+      addAccount: () => {
+        const cur = this.accounts();
+        const next = this.pool().find((p) => !cur.some((a) => a.handle === p.handle));
+        if (!next) return;
+        this.setState({
+          accounts: cur.concat([next]),
+          events: [this.ev(next.handle, 'Account added', 'acctAdded', { t: 'profile', h: next.handle })].concat(this.events()),
+        });
+        this.showToast('Account added');
+      },
+      settingsAccounts: this.accounts().map((a) => ({
+        key: a.handle, handle: a.handle, name: a.name,
+        imgRef: (el) => { if (el) el.src = this.avatar(a.handle); },
+        onRemove: () => {
+          const snap = { accounts: this.accounts(), autos: this.autos(), events: this.events(), actAccounts: this.state.actAccounts };
+          const remaining = this.accounts().filter((x) => x.handle !== a.handle);
+          this.setState({
+            accounts: remaining,
+            autos: this.autos().filter((x) => x.account !== a.handle),
+            events: [this.ev(a.handle, 'Account removed')].concat(this.events()),
+            // A removed account must not go on filtering the activity list.
+            actAccounts: this.state.actAccounts.filter((h) => h !== a.handle),
+          });
+          this.showToast('Account removed', snap);
+        },
+      })),
+      deleteAccount: () => this.showToast('Account deleted', {}),
+      eventsList: (() => {
+        let prevDay = null;
+        return filteredEvents.map((e2) => {
+          const firstOfDay = e2.day !== prevDay;
+          prevDay = e2.day;
+          const link = e2.link;
+          return {
+            key: e2.id, account: e2.account, text: e2.text, time: e2.time, day: e2.day,
+            dayDisplay: firstOfDay ? 'block' : 'none',
+            iconF: e2.kind === 'follow' ? 'flex' : 'none',
+            iconD: e2.kind === 'sent' ? 'flex' : 'none',
+            iconC: e2.kind === 'sched' ? 'flex' : 'none',
+            iconP: e2.kind === 'autoAdded' ? 'flex' : 'none',
+            iconA: e2.kind === 'acctAdded' ? 'flex' : 'none',
+            iconS: e2.kind === 'system' ? 'flex' : 'none',
+            textColor: this.eventTone(e2.kind),
+            chipDisplay: e2.target ? 'flex' : 'none',
+            chipName: e2.target ? this.userName(e2.target) : '',
+            chipHandle: e2.target || '',
+            chipBadge: e2.target && this.verifiedUsers()[e2.target] ? 'flex' : 'none',
+            chipRef: (el) => { if (el && e2.target) el.src = this.avatar(e2.target); },
+            detailDisplay: e2.detail ? 'inline' : 'none',
+            detail: e2.detail || '',
+            cursor: link ? 'pointer' : 'default',
+            hoverBg: link ? '#f7f7f7' : 'transparent',
+            onRow: () => {
+              if (!link) return;
+              if (link.t === 'profile') window.open('https://x.com/' + link.h.slice(1), '_blank');
+              else if (link.t === 'messages') window.open('https://x.com/messages', '_blank');
+              else if (link.t === 'autos') {
+                // Open the automation itself. If it has since been deleted,
+                // fall back to its account's section rather than dead-ending.
+                const a = this.autos().find((x) => x.id === link.autoId);
+                this.setState(a
+                  ? { view: 'automations', modal: { step: 'config', account: a.account, id: a.id, msg: a.msg, delay: a.delay, menu: null } }
+                  : { view: 'automations' });
+              }
+            },
+          };
+        });
+      })(),
+      actEmpty: filteredEvents.length === 0,
+      showFade: view === 'activity' && filteredEvents.length > 9,
+      actTypeLabel: everyType ? 'All activity' : (actTypes.length === 1 ? TYPE_LABELS[actTypes[0]] : actTypes.length + ' types'),
+      toggleTypeMenu: (e) => { e.stopPropagation(); this.setState({ actMenu: this.state.actMenu === 'type' ? null : 'type' }); },
+      showTypeMenu: this.state.actMenu === 'type',
+      typeFilterOpts: ['all', 'follow', 'dm', 'system'].map((t) => ({
+        key: t,
+        label: t === 'all' ? 'All activity' : TYPE_LABELS[t],
+        checkOpacity: (t === 'all' ? everyType : actTypes.indexOf(t) !== -1) ? 1 : 0,
+        onPick: (e) => {
+          e.stopPropagation();
+          if (t === 'all') { this.setState({ actTypes: [] }); return; }
+          const next = actTypes.indexOf(t) !== -1 ? actTypes.filter((x) => x !== t) : actTypes.concat([t]);
+          this.setState({ actTypes: next.length === 3 ? [] : next });
+        },
+      })),
+      actAccountLabel: everyAccount ? 'All accounts' : (actAccounts.length === 1 ? actAccounts[0] : actAccounts.length + ' accounts'),
+      toggleActMenu: (e) => { e.stopPropagation(); this.setState({ actMenu: this.state.actMenu === 'accounts' ? null : 'accounts' }); },
+      showActMenu: this.state.actMenu === 'accounts',
+      accountFilterOpts: ['all'].concat(this.accounts().map((a) => a.handle)).map((h) => ({
+        key: h,
+        label: h === 'all' ? 'All accounts' : this.accountName(h),
+        handle: h === 'all' ? '' : h,
+        avatarDisplay: h === 'all' ? 'none' : 'block',
+        handleDisplay: h === 'all' ? 'none' : 'inline',
+        badgeDisplay: h === 'all' ? 'none' : 'flex',
+        imgRef: (el) => { if (el && h !== 'all') el.src = this.avatar(h); },
+        checkOpacity: (h === 'all' ? everyAccount : actAccounts.indexOf(h) !== -1) ? 1 : 0,
+        // The menu stays open on pick — the point of multiselect is stacking
+        // choices without reopening it each time.
+        onPick: (e) => {
+          e.stopPropagation();
+          if (h === 'all') { this.setState({ actAccounts: [] }); return; }
+          const next = actAccounts.indexOf(h) !== -1 ? actAccounts.filter((x) => x !== h) : actAccounts.concat([h]);
+          this.setState({ actAccounts: next.length === this.accounts().length ? [] : next });
+        },
+      })),
+      eatMenuClick: (e) => e.stopPropagation(),
+      rootClick: () => { if (this.state.actMenu) this.setState({ actMenu: null }); },
+      automationGroups,
+      noAccounts: automationGroups.length === 0,
+      closeModal: () => this.setState({ modal: null }),
+      eatClick: (e) => { e.stopPropagation(); if (m && m.menu) set({ menu: null }); },
+      showModal: !!m,
+      modalW: !!m && m.step === 'live' ? '400px' : '560px',
+      stepType: !!m && m.step === 'type',
+      stepConfig: inConfig,
+      stepLive: !!m && m.step === 'live',
+      comingSoon: (this.props.showComingSoon ?? true) ? [
+        { key: 'c1', title: 'Auto-comment on your posts', desc: 'Adds your comment under every new post', icon: 'comment' },
+        { key: 'c2', title: 'Message after keyword comment', desc: 'Messages anyone who comments your keyword on a post', icon: 'keyword' },
+        { key: 'c3', title: 'Auto-repost', desc: 'Reposts your new post from your other accounts', icon: 'repost' },
+      ].map((c) => Object.assign({}, c, {
+        iconComment: c.icon === 'comment' ? 'flex' : 'none',
+        iconKeyword: c.icon === 'keyword' ? 'flex' : 'none',
+        iconRepost: c.icon === 'repost' ? 'flex' : 'none',
+      })) : [],
+      liveCopy: (() => {
+        if (!m || m.step !== 'live') return '';
+        const a = this.autos().find((x) => x.id === m.id) || {};
+        return a.kind === 'slack'
+          ? 'Every new post from ' + (a.account || '') + ' will be announced in ' + (a.channel || 'your Slack channel') + '.'
+          : 'The message will start sending automatically when someone new follows ' + (a.account || '') + '.';
+      })(),
+      confirmLive: () => {
+        const a = this.autos().find((x) => x.id === m.id);
+        if (!a) { this.setState({ modal: null }); return; }
+        this.setState({
+          autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: true, everLive: true, updated: 'now' }) : x),
+          events: [this.ev(a.account, 'Automation set live')].concat(this.events()),
+          modal: null,
+        });
+      },
+      configLabel: inConfig && m.id ? 'Edit automation' : 'New automation',
+      pickDmType: () => this.setState({ modal: { step: 'config', kind: 'dm', account: m.account, id: null, msg: '', delay: 5, menu: null } }),
+      pickSlackType: () => this.setState({ modal: { step: 'config', kind: 'slack', account: m.account, id: null, msg: '', channel: this.slackChannels()[0], menu: null } }),
+      msgVal: inConfig ? m.msg : '',
+      setMsg: (e) => set({ msg: e.target.value }),
+      msgRef: (el) => { this._msgEl = el; },
+      mirrorRef: (el) => { this._mirrorEl = el; },
+      onMsgScroll: (e) => { if (this._mirrorEl) this._mirrorEl.scrollTop = e.target.scrollTop; },
+      msgSegs: ((inConfig && m.msg) || '').split(/(\{name\}|\{handle\}|\{link\})/).filter((s) => s !== '').map((s, i) => {
+        const isVar = s === '{name}' || s === '{handle}' || s === '{link}';
+        return { key: i, t: s, col: isVar ? '#2f5fc4' : '#111111', bg: isVar ? 'rgba(47, 95, 196, 0.08)' : 'transparent' };
+      }),
+      varOpts: (isSlack ? [['{link}', 'Link'], ['{handle}', 'Handle']] : [['{name}', 'Name'], ['{handle}', 'Handle']]).map((v) => ({
+        token: v[0],
+        onInsert: (ce) => {
+          ce.stopPropagation();
+          const el = this._msgEl, cur = (inConfig && m.msg) || '';
+          const a = el && el.selectionStart != null ? el.selectionStart : cur.length;
+          const b = el && el.selectionEnd != null ? el.selectionEnd : a;
+          set({ msg: cur.slice(0, a) + v[0] + cur.slice(b) });
+          setTimeout(() => { if (el) { el.focus(); el.selectionStart = el.selectionEnd = a + v[0].length; } }, 0);
+        },
+      })),
+      // One chip serves both types: a delay for DMs, a channel for Slack.
+      triggerCopy: isSlack ? 'When you publish a post' : 'When someone new follows the account',
+      chipLabel: !inConfig ? '' : (isSlack ? m.channel : this.delayPhrase(m.delay)),
+      thenCopy: isSlack ? 'receives this message:' : (inConfig && m.delay === 0 ? 'send this message:' : 'then send this message:'),
+      toggleChipMenu: (e) => { e.stopPropagation(); set({ menu: m.menu === 'chip' ? null : 'chip' }); },
+      showChipMenu: inConfig && m.menu === 'chip',
+      chipOpts: isSlack
+        ? this.slackChannels().map((c) => ({ key: c, label: c, checkOpacity: m.channel === c ? 1 : 0, onPick: (e) => { e.stopPropagation(); set({ channel: c, menu: null }); } }))
+        : [0, 1, 5, 15, 60].map((d) => ({ key: d, label: this.delayPhrase(d), checkOpacity: inConfig && m.delay === d ? 1 : 0, onPick: (e) => { e.stopPropagation(); set({ delay: d, menu: null }); } })),
+      msgPlaceholder: isSlack ? 'New post is live {link}' : 'Hey there 👋 Thanks for following!',
+      varsLabel: isSlack ? 'Insert from post' : 'Insert from profile',
+      showDelete: inConfig && !!m.id,
+      deleteAuto: () => {
+        const snap = { autos: this.autos(), events: this.events() };
+        const a = this.autos().find((x) => x.id === m.id);
+        this.setState({
+          autos: this.autos().filter((x) => x.id !== m.id),
+          events: a ? [this.ev(a.account, 'Automation deleted · ' + a.type)].concat(this.events()) : this.events(),
+          modal: null,
+        });
+        this.showToast('Automation deleted', snap);
+      },
+      submitLabel: inConfig && m.id ? 'Save' : 'Add',
+      submitBg: canSubmit ? '#111111' : '#f2f2f2',
+      submitHoverBg: canSubmit ? '#2a2a2e' : '#f2f2f2',
+      submitColor: canSubmit ? '#ffffff' : '#c2c2c2',
+      submit: () => {
+        if (!canSubmit) return;
+        const snap = { autos: this.autos(), events: this.events() };
+        if (m.id) {
+          this.setState({
+            autos: this.autos().map((x) => x.id === m.id ? Object.assign({}, x, { msg: m.msg, delay: m.delay, channel: m.channel, updated: 'now' }) : x),
+            events: [this.ev(m.account, 'Automation updated · ' + (isSlack ? 'Message to Slack channel after post' : 'Send message to new followers'))].concat(this.events()),
+            modal: null,
+          });
+          this.showToast('Automation updated', snap);
+        } else {
+          const newId = Date.now();
+          const type = isSlack ? 'Message to Slack channel after post' : 'Send message to new followers';
+          this.setState({
+            autos: this.autos().concat([{ id: newId, kind: m.kind, type, account: m.account, delay: m.delay, channel: m.channel, active: false, everLive: false, updated: 'now', msg: m.msg }]),
+            events: [this.ev(m.account, 'Automation added · ' + type, 'autoAdded', { t: 'autos', account: m.account, autoId: newId })].concat(this.events()),
+            modal: null,
+          });
+          this.showToast('Automation added', snap);
+        }
+      },
+      showToast: !!this.state.toast,
+      toastMsg: this.state.toast ? this.state.toast.msg : '',
+      toastUndoDisplay: this.state.toast && this.state.toast.snap ? 'block' : 'none',
+      undoToast: () => {
+        clearTimeout(this._toastT);
+        const snap = this.state.toast && this.state.toast.snap;
+        this.setState(Object.assign({}, snap || {}, { toast: null }));
+      },
+    };
+  }
+}
+</script>
+
+
+</body></html>
