@@ -1,0 +1,25 @@
+{
+  "name": "slide-automations-template-backup",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@central-icons-react/round-filled-radius-3-stroke-2": "^1.1.309",
+    "@central-icons-react/round-outlined-radius-2-stroke-2": "^1.1.309",
+    "motion": "^13.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0"
+  }
+}
