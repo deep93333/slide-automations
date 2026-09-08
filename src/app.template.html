@@ -92,11 +92,12 @@
   a:hover { color: #767676; }
   ::selection { background: rgba(29, 155, 240, 0.22); }
   textarea::placeholder, input::placeholder { color: #b4b4b4; }
+  input[data-keyword]:focus { border-color: #c7c7c7 !important; }
 </style>
 </helmet>
 
 <div data-screen-label="Slide" sc-camel-on-click="{{ rootClick }}" style="position: relative; min-height: 100vh; color: #0a0a0a; font-size: 12px; line-height: 1.55;">
-  <div sc-camel-on-click="{{ gotoActivity }}" style="position: fixed; z-index: 1; left: 36px; top: 26px; font-size: 19px; font-weight: 400; font-variation-settings: 'opsz' 32; letter-spacing: -0.03em; line-height: 1; color: #111111; cursor: pointer; user-select: none;">slide</div>
+  <div sc-camel-on-click="{{ gotoAutomations }}" style="position: fixed; z-index: 1; left: 36px; top: 26px; font-size: 19px; font-weight: 400; font-variation-settings: 'opsz' 32; letter-spacing: -0.03em; line-height: 1; color: #111111; cursor: pointer; user-select: none;">slide</div>
   <aside style="position: fixed; z-index: 1; left: 36px; top: 84px; width: 178px; display: flex; flex-direction: column; align-items: flex-start;">
     <div sc-camel-on-click="{{ gotoAutomations }}" style="display: flex; align-items: center; gap: 8px; color: {{ navAutoColor }}; cursor: pointer;" style-hover="color: #111111;">
       <svg data-icon="nav-automations" width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"></path></svg>
@@ -114,29 +115,31 @@
     </div>
   </aside>
   <main style="box-sizing: border-box; position: relative; z-index: 1; margin-left: clamp(260px, 38vw, 540px); padding: 76px 56px 96px 0; max-width: 620px;">
-    <sc-if value="{{ showAutomations }}" hint-placeholder-val="{{ false }}">
+    <sc-if value="{{ showAutomations }}" hint-placeholder-val="{{ true }}">
       <div data-screen-label="Automations">
         <h1 style="margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -0.01em;">Automations</h1>
         <div style="margin-top: 36px; display: flex; flex-direction: column; gap: 40px;">
           <sc-for list="{{ automationGroups }}" as="g" hint-placeholder-count="2">
             <div>
-              <div style="display: flex; align-items: center; gap: 7px;">
-                <img ref="{{ g.imgRef }}" alt="" style="width: 18px; height: 18px; border-radius: 9px; background: #ececec; flex-shrink: 0; display: block;">
-                <span style="font-size: 11.5px; font-weight: 500; color: #111111; white-space: nowrap;">{{ g.name }}</span>
-                <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
-                <span style="font-size: 11px; color: #a3a3a3; white-space: nowrap;">{{ g.handle }}</span>
+              <div style="display: flex; align-items: center; gap: 6.5px; font-size: 13px;">
+                <img ref="{{ g.imgRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
+                <span style="font-weight: 500; color: #111111; white-space: nowrap;">{{ g.name }}</span>
+                <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
+                <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap;">{{ g.handle }}</span>
                 <div style="flex: 1;"></div>
                 <div sc-camel-on-click="{{ g.onAdd }}" style="display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 7px; background: #111111; color: #ffffff; font-size: 11.5px; cursor: pointer; user-select: none; flex-shrink: 0;" style-hover="background: #2a2a2e;"><svg data-icon="plus" width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg><span>Add automation</span></div>
               </div>
               <sc-if value="{{ g.hasAutos }}" hint-placeholder-val="{{ true }}">
                 <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
                   <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="1">
-    <div sc-camel-on-click="{{ r.onEdit }}" style="display: flex; align-items: center; gap: 16px; border: 1px solid #ebebeb; border-radius: 12px; padding: 14px 18px; cursor: pointer;" style-hover="border-color: #d5d5d5;">
+    <div sc-camel-on-click="{{ r.onEdit }}" style="display: flex; align-items: center; gap: 14px; border: 1px solid #ebebeb; border-radius: 12px; padding: 14px 18px; cursor: pointer;" style-hover="border-color: #d5d5d5;">
+                    <span style="display: {{ r.iconDm }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; color: #767676; position: relative;"><svg data-icon="type-new-followers" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-follower" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg></span></span>
+                    <span style="display: {{ r.iconKeyword }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; color: #767676; position: relative;"><svg data-icon="type-keyword" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-dots" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h.01M12 12h.01M18 12h.01"></path></svg></span></span>
+                    <span style="display: {{ r.iconSlack }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; color: #767676; position: relative;"><svg data-icon="type-slack" width="16" height="16" sc-camel-view-box="0 0 24 24"></svg></span>
                     <div style="display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0;">
                       <div style="color: #111111; font-weight: 500;">{{ r.title }}</div>
                       <div style="color: #8c8c8c; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ r.preview }}</div>
                     </div>
-                    <div style="color: #c7c7c7; font-size: 11.5px; flex-shrink: 0;">{{ r.updated }}</div>
                     <div style="display: {{ r.liveDisplay }}; color: #00875a; font-size: 11.5px; flex-shrink: 0;">Live</div>
                     <div sc-camel-on-click="{{ r.onToggle }}" style="width: 30px; height: 18px; border-radius: 9px; background: {{ r.toggleBg }}; position: relative; cursor: pointer; transition: background 0.15s ease; flex-shrink: 0;">
                       <div style="position: absolute; top: 2px; left: {{ r.knobLeft }}; width: 14px; height: 14px; border-radius: 7px; background: #ffffff; transition: left 0.15s ease;"></div>
@@ -156,7 +159,7 @@
         </sc-if>
       </div>
     </sc-if>
-    <sc-if value="{{ showActivity }}" hint-placeholder-val="{{ true }}">
+    <sc-if value="{{ showActivity }}" hint-placeholder-val="{{ false }}">
       <div data-screen-label="Activity">
         <!-- baseline, not centre: the triggers are 11.5px against a 15px heading,
              so centring their line boxes leaves the text sitting visibly high. -->
@@ -170,7 +173,7 @@
             </div>
             <sc-if value="{{ showTypeMenu }}" hint-placeholder-val="{{ false }}">
               <div sc-camel-on-click="{{ eatMenuClick }}" style="position: absolute; top: calc(100% + 10px); right: -6px; background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 6px; min-width: 168px; display: flex; flex-direction: column; z-index: 6;">
-                <sc-for list="{{ typeFilterOpts }}" as="opt" hint-placeholder-count="4">
+                <sc-for list="{{ typeFilterOpts }}" as="opt" hint-placeholder-count="3">
                   <div sc-camel-on-click="{{ opt.onPick }}" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 7px; color: #111111; cursor: pointer;" style-hover="background: #f6f6f6;">
                     <span>{{ opt.label }}</span>
                     <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
@@ -186,13 +189,13 @@
             </div>
             <sc-if value="{{ showActMenu }}" hint-placeholder-val="{{ false }}">
               <div sc-camel-on-click="{{ eatMenuClick }}" style="position: absolute; top: calc(100% + 10px); right: -6px; background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 6px; min-width: 232px; display: flex; flex-direction: column; z-index: 6;">
-                <sc-for list="{{ accountFilterOpts }}" as="opt" hint-placeholder-count="3">
+                <sc-for list="{{ accountFilterOpts }}" as="opt" hint-placeholder-count="2">
                   <div sc-camel-on-click="{{ opt.onPick }}" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 7px; color: #111111; cursor: pointer;" style-hover="background: #f6f6f6;">
-                    <span style="display: flex; align-items: center; gap: 7px; min-width: 0;">
-                      <img ref="{{ opt.imgRef }}" alt="" style="display: {{ opt.avatarDisplay }}; width: 18px; height: 18px; border-radius: 9px; background: #ececec; flex-shrink: 0;">
+                    <span style="display: flex; align-items: center; gap: 6.5px; font-size: 13px; min-width: 0;">
+                      <img ref="{{ opt.imgRef }}" alt="" style="display: {{ opt.avatarDisplay }}; width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0;">
                       <span style="font-weight: 500; white-space: nowrap;">{{ opt.label }}</span>
-                      <span style="display: {{ opt.badgeDisplay }}; align-items: center; flex-shrink: 0;"><svg data-icon="verified" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
-                      <span style="display: {{ opt.handleDisplay }}; color: #a3a3a3; white-space: nowrap;">{{ opt.handle }}</span>
+                      <span style="display: {{ opt.badgeDisplay }}; align-items: center; flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
+                      <span style="display: {{ opt.handleDisplay }}; color: #a3a3a3; position: relative; top: -1px; white-space: nowrap;">{{ opt.handle }}</span>
                     </span>
                     <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
                   </div>
@@ -211,15 +214,17 @@
                 <span style="display: {{ ev.iconF }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #bfbfbf;"><svg data-icon="event-follow" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg></span>
                 <span style="display: {{ ev.iconD }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #bfbfbf;"><svg data-icon="event-sent" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path></svg></span>
                 <span style="display: {{ ev.iconC }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #bfbfbf; position: relative;"><svg data-icon="event-scheduled" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path></svg><span style="position: absolute; right: -3px; bottom: -3px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-clock" width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 7v5l3 3"></path></svg></span></span>
-                <span style="display: {{ ev.iconP }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #2e9be8;"><svg data-icon="event-auto-added" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg></span>
-                <span style="display: {{ ev.iconA }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #2e9be8;"><svg data-icon="event-account-added" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 8l0 8"></path><path d="M8 12l8 0"></path></svg></span>
-                <span style="display: {{ ev.iconS }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #2e9be8;"><svg data-icon="event-system" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg></span>
+                <span style="display: {{ ev.iconP }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #6e98c1;"><svg data-icon="event-auto-added" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg></span>
+                <span style="display: {{ ev.iconA }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #6e98c1;"><svg data-icon="event-account-added" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 8l0 8"></path><path d="M8 12l8 0"></path></svg></span>
+                <span style="display: {{ ev.iconR }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #6e98c1;"><svg data-icon="event-account-removed" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M8 12l8 0"></path></svg></span>
+                <span style="display: {{ ev.iconL }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #6e98c1;"><svg data-icon="event-live" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path><path d="M8.5 8.5a5 5 0 0 0 0 7"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M5.5 5.5a9 9 0 0 0 0 13"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg></span>
+                <span style="display: {{ ev.iconS }}; align-items: center; justify-content: center; width: 15px; flex-shrink: 0; color: #6e98c1;"><svg data-icon="event-system" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg></span>
                 <span style="color: {{ ev.textColor }}; flex-shrink: 0;">{{ ev.text }}</span>
-                <span style="display: {{ ev.chipDisplay }}; align-items: center; gap: 6px; min-width: 0;">
-                  <img ref="{{ ev.chipRef }}" alt="" style="width: 16px; height: 16px; border-radius: 8px; background: #ececec; flex-shrink: 0; display: block;">
+                <span style="display: {{ ev.chipDisplay }}; align-items: center; gap: 6.5px; font-size: 13px; min-width: 0;">
+                  <img ref="{{ ev.chipRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
                   <span style="color: #111111; font-weight: 500; white-space: nowrap;">{{ ev.chipName }}</span>
-                  <span style="display: {{ ev.chipBadge }}; align-items: center; flex-shrink: 0;"><svg data-icon="verified" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
-                  <span style="color: #a3a3a3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ ev.chipHandle }}</span>
+                  <span style="display: {{ ev.chipBadge }}; align-items: center; flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
+                  <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ ev.chipHandle }}</span>
                 </span>
                 <span style="display: {{ ev.detailDisplay }}; color: #c7c7c7; flex-shrink: 0;">{{ ev.detail }}</span>
                 <div style="flex: 1;"></div>
@@ -239,11 +244,13 @@
         <div style="margin-top: 44px; color: #c7c7c7; font-size: 11.5px;">Accounts</div>
         <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
           <sc-for list="{{ settingsAccounts }}" as="sa" hint-placeholder-count="2">
-            <div style="display: flex; align-items: center; gap: 7px; width: 100%;">
-              <img ref="{{ sa.imgRef }}" alt="" style="width: 18px; height: 18px; border-radius: 9px; background: #ececec; flex-shrink: 0; display: block;">
-              <span style="font-size: 11.5px; font-weight: 500; color: #111111; white-space: nowrap;">{{ sa.name }}</span>
-              <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
-              <span style="font-size: 11px; color: #a3a3a3; white-space: nowrap;">{{ sa.handle }}</span>
+            <div style="display: flex; align-items: center; gap: 6.5px; font-size: 13px; width: 100%;">
+              <span style="display: {{ sa.iconX }}; align-items: center; justify-content: center; width: 14px; flex-shrink: 0; color: #767676; margin-right: 2px;"><svg data-icon="account-x" width="12" height="12" sc-camel-view-box="0 0 24 24"></svg></span>
+              <span style="display: {{ sa.iconSlack }}; align-items: center; justify-content: center; width: 14px; flex-shrink: 0; color: #767676; margin-right: 2px;"><svg data-icon="type-slack" width="13" height="13" sc-camel-view-box="0 0 24 24"></svg></span>
+              <img ref="{{ sa.imgRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
+              <span style="font-weight: 500; color: #111111; white-space: nowrap;">{{ sa.name }}</span>
+              <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
+              <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap;">{{ sa.handle }}</span>
               <div style="flex: 1;"></div>
               <div sc-camel-on-click="{{ sa.onRemove }}" style="color: #ee000f; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="color: #b8000c;">Remove</div>
             </div>
@@ -268,8 +275,7 @@
     <div sc-camel-on-click="{{ closeModal }}" style="position: fixed; inset: 0; background: rgba(246, 246, 246, 0.88); display: flex; justify-content: center; align-items: flex-start; padding-top: 21vh; z-index: 10;">
       <div sc-camel-on-click="{{ eatClick }}" data-screen-label="Modal" style="width: {{ modalW }}; max-width: calc(100vw - 48px); box-sizing: border-box; background: #ffffff; border: 1px solid #ebebeb; border-radius: 14px; padding: 26px 28px 18px;">
         <sc-if value="{{ stepType }}" hint-placeholder-val="{{ false }}">
-          <div style="color: #a3a3a3; font-size: 11.5px;">Add automation</div>
-          <div style="margin-top: 18px; padding-bottom: 10px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="padding-bottom: 10px; display: flex; flex-direction: column; gap: 8px;">
             <div sc-camel-on-click="{{ pickDmType }}" style="border: 1px solid #ebebeb; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer;" style-hover="border-color: #d5d5d5; background: #fafafa;">
               <span style="display: flex; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-new-followers" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-follower" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg></span></span>
               <div style="flex: 1; min-width: 0;">
@@ -277,17 +283,17 @@
                 <div style="margin-top: 4px; color: #8c8c8c; font-size: 11.5px;">Sends your message when someone follows the account</div>
               </div>
             </div>
-            <div sc-camel-on-click="{{ pickSlackType }}" style="border: 1px solid #ebebeb; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer;" style-hover="border-color: #d5d5d5; background: #fafafa;">
-              <span style="display: flex; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-slack" width="15" height="15" sc-camel-view-box="0 0 24 24"></svg></span>
+            <div sc-camel-on-click="{{ pickKeywordType }}" style="border: 1px solid #ebebeb; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer;" style-hover="border-color: #d5d5d5; background: #fafafa;">
+              <span style="display: flex; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-keyword" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-dots" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h.01M12 12h.01M18 12h.01"></path></svg></span></span>
               <div style="flex: 1; min-width: 0;">
-                <div style="color: #111111; font-weight: 500;">Message to Slack channel after post</div>
-                <div style="margin-top: 4px; color: #8c8c8c; font-size: 11.5px;">Posts a message to your Slack channel when you publish</div>
+                <div style="color: #111111; font-weight: 500;">Message after keyword comment</div>
+                <div style="margin-top: 4px; color: #8c8c8c; font-size: 11.5px;">Messages anyone who comments your keyword on a post</div>
               </div>
             </div>
             <sc-for list="{{ comingSoon }}" as="cs" hint-placeholder-count="3">
               <div style="border: 1px solid #f0f0f0; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 14px; opacity: 0.55; user-select: none;">
+                <span style="display: {{ cs.iconSlack }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-slack" width="16" height="16" sc-camel-view-box="0 0 24 24"></svg></span>
                 <span style="display: {{ cs.iconComment }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-comment" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14l-4 -4l4 -4M5 10h9a5 5 0 0 1 5 5v3"></path></svg></span>
-                <span style="display: {{ cs.iconKeyword }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-keyword" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-7l-5 3v-3h-2a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2"></path></svg><span style="position: absolute; right: -4px; bottom: -4px; display: flex; background: #ffffff; border-radius: 50%; padding: 0.5px;"><svg data-icon="badge-dots" width="11" height="11" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h.01M12 12h.01M18 12h.01"></path></svg></span></span>
                 <span style="display: {{ cs.iconRepost }}; align-items: center; justify-content: center; width: 18px; flex-shrink: 0; margin-top: 1px; color: #767676; position: relative;"><svg data-icon="type-repost" width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v-3a3 3 0 0 1 3 -3h13m-3 -3l3 3l-3 3M20 12v3a3 3 0 0 1 -3 3h-13m3 3l-3 -3l3 -3"></path></svg></span>
                 <div style="flex: 1; min-width: 0;">
                   <div style="color: #111111; font-weight: 500;">{{ cs.title }}</div>
@@ -299,9 +305,54 @@
           </div>
         </sc-if>
         <sc-if value="{{ stepConfig }}" hint-placeholder-val="{{ false }}">
-          <div style="color: #a3a3a3; font-size: 11.5px;">{{ configLabel }}</div>
-          <div style="margin-top: 20px; font-size: 13px;">{{ triggerCopy }}</div>
-          <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px;">
+          <!-- Two clauses, each atomic: the sentence is too long for one line at this width, so it breaks between "replies with {keyword}" and "on {which} {who} post" rather than after a stranded preposition. -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 9px; font-size: 13px;">
+            <span style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+              <span>{{ triggerPre }}</span>
+              <sc-if value="{{ isKeyword }}" hint-placeholder-val="{{ false }}">
+                <input data-keyword="" value="{{ kwVal }}" sc-camel-on-change="{{ setKw }}" sc-camel-auto-focus="{{ true }}" placeholder="keyword" style="box-sizing: border-box; width: 104px; border: 1px solid #e8e8e8; border-radius: 6px; padding: 2px 9px; font-family: inherit; font-size: 12px; line-height: inherit; color: #111111; background: #ffffff; outline: none;">
+              </sc-if>
+            </span>
+            <span style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+              <sc-if value="{{ isKeyword }}" hint-placeholder-val="{{ false }}">
+                <span>on</span>
+                <div style="position: relative;">
+                  <div sc-camel-on-click="{{ toggleScopeMenu }}" style="display: inline-flex; align-items: center; gap: 6px; color: #111111; border: 1px solid #e8e8e8; padding: 2px 9px; border-radius: 6px; cursor: pointer; user-select: none; font-size: 12px;" style-hover="border-color: #d5d5d5;">
+                    <span>{{ scopeLabel }}</span>
+                    <svg data-icon="chevron-down" width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.6;"><path d="M6 9l6 6l6 -6"></path></svg>
+                  </div>
+                  <sc-if value="{{ showScopeMenu }}" hint-placeholder-val="{{ false }}">
+                    <div style="position: absolute; top: calc(100% + 8px); left: 0; background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 6px; min-width: 176px; display: flex; flex-direction: column; z-index: 20;">
+                      <sc-for list="{{ scopeOpts }}" as="opt" hint-placeholder-count="2">
+                        <div sc-camel-on-click="{{ opt.onPick }}" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 7px 10px; border-radius: 7px; color: #111111; cursor: pointer; font-size: 12px;" style-hover="background: #f6f6f6;">
+                          <span>{{ opt.label }}</span>
+                          <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+              <span style="display: inline-flex; align-items: center; gap: 6.5px;">
+                <img ref="{{ cfgImgRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
+                <span style="font-weight: 500; color: #111111; white-space: nowrap;">{{ cfgName }}</span>
+                <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
+                <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap;">{{ cfgHandle }}</span>
+              </span>
+              <sc-if value="{{ isKeyword }}" hint-placeholder-val="{{ false }}">
+                <span>post</span>
+              </sc-if>
+              <sc-if value="{{ isSlack }}" hint-placeholder-val="{{ false }}">
+                <span>publishes a post</span>
+              </sc-if>
+            </span>
+          </div>
+          <sc-if value="{{ isOnePost }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top: 10px;">
+              <input value="{{ postUrlVal }}" sc-camel-on-change="{{ setPostUrl }}" placeholder="{{ postUrlPlaceholder }}" style="box-sizing: border-box; border: 1px solid #e8e8e8; border-radius: 6px; padding: 2px 9px; font-family: inherit; line-height: inherit; color: #111111; background: #ffffff; outline: none;width: 100%; font-size: 12px;">
+            </div>
+          </sc-if>
+          <div style="margin-top: 14px; display: flex; align-items: center; gap: 8px; font-size: 13px;">
             <div style="position: relative;">
               <div sc-camel-on-click="{{ toggleChipMenu }}" style="display: inline-flex; align-items: center; gap: 6px; color: #111111; border: 1px solid #e8e8e8; padding: 2px 9px; border-radius: 6px; cursor: pointer; user-select: none; font-size: 12px;" style-hover="border-color: #d5d5d5;">
                 <span>{{ chipLabel }}</span>
@@ -323,17 +374,28 @@
           <div style="margin-top: 14px; border: 1px solid #ececec; border-radius: 10px; background: #fafafa; padding: 12px 14px;">
             <div style="position: relative; height: 88px;">
               <div ref="{{ mirrorRef }}" style="position: absolute; inset: 0; overflow: hidden; white-space: pre-wrap; overflow-wrap: break-word; font-family: inherit; font-size: 12px; line-height: 1.6; pointer-events: none;"><sc-for list="{{ msgSegs }}" as="seg" hint-placeholder-count="1"><span style="color: {{ seg.col }}; background: {{ seg.bg }}; border-radius: 4px;">{{ seg.t }}</span></sc-for></div>
-              <textarea ref="{{ msgRef }}" value="{{ msgVal }}" sc-camel-on-change="{{ setMsg }}" sc-camel-on-scroll="{{ onMsgScroll }}" sc-camel-auto-focus="{{ true }}" placeholder="{{ msgPlaceholder }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; outline: none; resize: none; padding: 0; font-family: inherit; font-size: 12px; line-height: 1.6; color: transparent; caret-color: #111111; background: transparent; box-sizing: border-box; white-space: pre-wrap; overflow-wrap: break-word;"></textarea>
+              <textarea ref="{{ msgRef }}" value="{{ msgVal }}" sc-camel-on-change="{{ setMsg }}" sc-camel-on-scroll="{{ onMsgScroll }}" sc-camel-auto-focus="{{ msgAutoFocus }}" placeholder="{{ msgPlaceholder }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; outline: none; resize: none; padding: 0; font-family: inherit; font-size: 12px; line-height: 1.6; color: transparent; caret-color: #111111; background: transparent; box-sizing: border-box; white-space: pre-wrap; overflow-wrap: break-word;"></textarea>
             </div>
           </div>
-          <div style="position: relative; display: flex; align-items: center; gap: 8px; margin-top: 10px; padding-bottom: 12px;">
+          <div style="position: relative; display: flex; align-items: center; gap: 8px; margin-top: 10px;">
             <div style="color: #c2c2c2; font-size: 11.5px; margin-right: 6px;">{{ varsLabel }}</div>
             <sc-for list="{{ varOpts }}" as="v" hint-placeholder-count="2">
               <div sc-camel-on-click="{{ v.onInsert }}" style="position: relative; color: #2f5fc4; background: rgba(47, 95, 196, 0.08); padding: 2px 9px; border-radius: 6px; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="background: rgba(47, 95, 196, 0.14);">{{ v.token }}</div>
             </sc-for>
           </div>
-          <div style="border-top: 1px solid #f0f0f0;"></div>
-          <div style="margin-top: 14px; display: flex; align-items: center; gap: 24px;">
+          <sc-if value="{{ isKeyword }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top: 12px; display: flex; align-items: baseline; gap: 8px; font-size: 13px;">
+              <span>and reply to their reply:</span>
+              <span style="color: #c2c2c2; font-size: 11.5px;">(optional)</span>
+            </div>
+            <div style="margin-top: 10px; border: 1px solid #ececec; border-radius: 10px; background: #fafafa; padding: 12px 14px;">
+              <div style="position: relative; height: 44px;">
+                <div ref="{{ replyMirrorRef }}" style="position: absolute; inset: 0; overflow: hidden; white-space: pre-wrap; overflow-wrap: break-word; font-family: inherit; font-size: 12px; line-height: 1.6; pointer-events: none;"><sc-for list="{{ replySegs }}" as="seg" hint-placeholder-count="1"><span style="color: {{ seg.col }}; background: {{ seg.bg }}; border-radius: 4px;">{{ seg.t }}</span></sc-for></div>
+                <textarea ref="{{ replyRef }}" value="{{ replyVal }}" sc-camel-on-change="{{ setReply }}" sc-camel-on-scroll="{{ onReplyScroll }}" placeholder="{{ replyPlaceholder }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; outline: none; resize: none; padding: 0; font-family: inherit; font-size: 12px; line-height: 1.6; color: transparent; caret-color: #111111; background: transparent; box-sizing: border-box; white-space: pre-wrap; overflow-wrap: break-word;"></textarea>
+              </div>
+            </div>
+          </sc-if>
+          <div style="margin-top: 28px; display: flex; align-items: center; gap: 24px;">
             <sc-if value="{{ showDelete }}" hint-placeholder-val="{{ false }}">
               <div sc-camel-on-click="{{ deleteAuto }}" style="color: #ee000f; cursor: pointer; user-select: none;" style-hover="color: #b8000c;">Delete</div>
             </sc-if>
@@ -365,20 +427,22 @@
   &quot;showComingSoon&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;State&quot;}
 }">
 const TYPE_LABELS = { follow: 'Follows', dm: 'Messages', system: 'System' };
+const ALL_TYPES = ['follow', 'dm', 'system'];
+const TYPE_NAMES = { dm: 'Send message to new followers', keyword: 'Message after keyword comment', slack: 'Message to Slack channel after post' };
 class Component extends DCLogic {
   // actAccounts holds the handles the activity list is narrowed to. Empty means
   // every account, so selecting all of them collapses back to [] rather than
   // carrying a list that says the same thing.
-  state = { view: 'activity', autos: null, accounts: null, events: null, modal: null, actTypes: [], actAccounts: [], actMenu: null, toast: null };
+  state = { view: 'automations', autos: null, accounts: null, events: null, modal: null, actTypes: [], actAccounts: [], actMenu: null, toast: null };
   seed() {
     return (this.props.emptyState ?? false) ? [] : [
-      { id: 1, kind: 'dm', type: 'Send message to new followers', account: '@slidehq', delay: 60, active: true, everLive: true, updated: '2d',
+      { id: 1, kind: 'dm', type: 'Send message to new followers', account: '@slidehq', delay: 60, active: true, everLive: true,
         msg: "Hey {name} — thanks for the follow. If you're curious what we're building, reply here and I'll send you early access." }
     ];
   }
   slackChannels() { return ['#marketing-pod', '#general', '#launches']; }
-  seedAccounts() { return [{ handle: '@slidehq', name: 'Slide' }, { handle: '@martinfrost', name: 'Martin Frost' }]; }
-  pool() { return [{ handle: '@lukemiler', name: 'Luke Miler' }, { handle: '@noralindt', name: 'Nora Lindt' }, { handle: '@fieldframe', name: 'Field & Frame' }]; }
+  seedAccounts() { return [{ handle: '@slidehq', name: 'Slide', platform: 'x' }, { handle: '@martinfrost', name: 'Martin Frost', platform: 'x' }]; }
+  pool() { return [{ handle: '@lukemiler', name: 'Luke Miler', platform: 'x' }, { handle: '@noralindt', name: 'Nora Lindt', platform: 'x' }, { handle: '@fieldframe', name: 'Field & Frame', platform: 'x' }]; }
   users() { return { '@torvald_k': 'Torvald Keller', '@ana_builds': 'Ana Builds', '@jkraft': 'Jonas Kraft', '@renata_io': 'Renata Alves', '@moss_dev': 'Sam Moss', '@field_notes': 'Field Notes', '@paulsen_dev': 'Erik Paulsen', '@lukemiler': 'Luke Miler', '@noralindt': 'Nora Lindt', '@fieldframe': 'Field & Frame' }; }
   verifiedUsers() { return { '@ana_builds': true, '@renata_io': true, '@lukemiler': true }; }
   userName(h) { return this.users()[h] || this.cap(h.slice(1)); }
@@ -416,6 +480,29 @@ class Component extends DCLogic {
     ];
   }
   cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+  // Splits a message into plain and token runs for the mirror layer that sits
+  // under a transparent textarea. Shared so the reply highlights like the DM.
+  segsOf(text) {
+    return (text || '').split(/(\{name\}|\{handle\}|\{link\})/).filter((s) => s !== '').map((s, i) => {
+      const isVar = s === '{name}' || s === '{handle}' || s === '{link}';
+      return { key: i, t: s, col: isVar ? '#2f5fc4' : '#111111', bg: isVar ? 'rgba(47, 95, 196, 0.08)' : 'transparent' };
+    });
+  }
+  kindOf(a) { return a.kind || 'dm'; }
+  // Anything saved before the scope existed watched every post on the account.
+  postScopeOf(a) { return a.scope === 'post' ? 'one post' : 'any post'; }
+  // The line under a row's title: the trigger's own parameter first, the delay
+  // where the type has one, then the message.
+  previewOf(a) {
+    const msg = '“' + a.msg + '”';
+    const kind = this.kindOf(a);
+    if (kind === 'slack') return a.channel + ' · ' + msg;
+    if (kind === 'keyword') return '“' + a.keyword + '” · ' + this.postScopeOf(a) + ' · ' + this.listDelay(a.delay) + ' · ' + msg;
+    return this.listDelay(a.delay) + ' · ' + msg;
+  }
+  // Modal state for editing an automation. Shared by the row and the activity
+  // link so neither can open it with a field left out.
+  configFor(a) { return { step: 'config', kind: this.kindOf(a), account: a.account, id: a.id, msg: a.msg, delay: a.delay, channel: a.channel, keyword: a.keyword, scope: a.scope || 'any', postUrl: a.postUrl || '', reply: a.reply || '', menu: null }; }
   autos() { return this.state.autos ?? this.seed(); }
   accounts() { return this.state.accounts ?? this.seedAccounts(); }
   events() { return this.state.events ?? this.seedEvents(); }
@@ -428,16 +515,27 @@ class Component extends DCLogic {
     this._toastT = setTimeout(() => this.setState({ toast: null }), 5000);
   }
   componentWillUnmount() { clearTimeout(this._toastT); }
+  // Remembers the node, not a name: the ref runs with null on every render, so
+  // a flag would need resetting there and would be wiped on each keystroke. A
+  // node also goes stale by itself — reopening the modal builds new ones, so a
+  // focus left over from last time cannot match.
+  trackFocus(el) {
+    if (el && !el.dataset.focusTracked) {
+      el.dataset.focusTracked = '1';
+      el.addEventListener('focus', () => { this._focusedEl = el; });
+    }
+    return el;
+  }
   accountName(handle) { const a = this.accounts().find((x) => x.handle === handle); return a ? a.name : handle; }
   filterGroup(kind) { return kind === 'follow' ? 'follow' : (kind === 'sent' || kind === 'sched' ? 'dm' : 'system'); }
   // Three tiers so the list scans at a glance: what happened (black), what is
-  // still pending (grey), and housekeeping (blue). Housekeeping differs in hue
+  // still pending (grey), and housekeeping (a washed blue). Housekeeping differs in hue
   // rather than weight because it is a different kind of line, not a less
   // important one. Derived from filterGroup so the colours cannot drift away
   // from what the System tab collects.
   eventTone(kind) {
     if (kind === 'sched') return '#8c8c8c';
-    return this.filterGroup(kind) === 'system' ? '#0078d6' : '#111111';
+    return this.filterGroup(kind) === 'system' ? '#497aab' : '#111111';
   }
   renderVals() {
     const m = this.state.modal;
@@ -455,8 +553,10 @@ class Component extends DCLogic {
       const rows = this.autos().filter((a) => a.account === acc.handle).map((a) => ({
         key: a.id,
         title: a.type,
-        preview: (a.kind === 'slack' ? a.channel : this.listDelay(a.delay)) + ' · \u201C' + a.msg + '\u201D',
-        updated: a.updated || '2d',
+        preview: this.previewOf(a),
+        iconDm: this.kindOf(a) === 'dm' ? 'flex' : 'none',
+        iconKeyword: this.kindOf(a) === 'keyword' ? 'flex' : 'none',
+        iconSlack: this.kindOf(a) === 'slack' ? 'flex' : 'none',
         liveDisplay: a.active ? 'block' : 'none',
         toggleBg: a.active ? '#00ba7c' : '#dbdbdb',
         knobLeft: a.active ? '14px' : '2px',
@@ -464,19 +564,19 @@ class Component extends DCLogic {
           e.stopPropagation();
           if (a.active) {
             this.setState({
-              autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: false, updated: 'now' }) : x),
+              autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: false }) : x),
               events: [this.ev(a.account, 'Automation paused')].concat(this.events()),
             });
           } else if (a.everLive) {
             this.setState({
-              autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: true, updated: 'now' }) : x),
-              events: [this.ev(a.account, 'Automation set live')].concat(this.events()),
+              autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: true }) : x),
+              events: [this.ev(a.account, 'Automation set live', 'live')].concat(this.events()),
             });
           } else {
             this.setState({ modal: { step: 'live', id: a.id } });
           }
         },
-        onEdit: () => this.setState({ modal: { step: 'config', kind: a.kind || 'dm', account: a.account, id: a.id, msg: a.msg, delay: a.delay, channel: a.channel, menu: null } }),
+        onEdit: () => this.setState({ modal: this.configFor(a) }),
       }));
       return {
         key: acc.handle,
@@ -490,8 +590,17 @@ class Component extends DCLogic {
       };
     });
     const inConfig = !!m && m.step === 'config';
-    const isSlack = inConfig && m.kind === 'slack';
-    const canSubmit = inConfig && !!(m.msg && m.msg.trim());
+    const kind = inConfig ? (m.kind || 'dm') : null;
+    const isSlack = kind === 'slack';
+    const isKeyword = kind === 'keyword';
+    // Keyword automations watch either every post on the account or one named
+    // post. Anything saved before the choice existed watched everything.
+    const scope = inConfig ? (m.scope || 'any') : 'any';
+    const isOnePost = isKeyword && scope === 'post';
+    // A keyword automation has nothing to listen for until the keyword is in.
+    const canSubmit = inConfig && !!(m.msg && m.msg.trim()) && (!isKeyword || !!(m.keyword && m.keyword.trim()))
+      // A specific post is not specified until its link is in.
+      && (!isOnePost || !!(m.postUrl && m.postUrl.trim()));
     return {
       showAutomations: view === 'automations',
       showActivity: view === 'activity',
@@ -514,6 +623,10 @@ class Component extends DCLogic {
       },
       settingsAccounts: this.accounts().map((a) => ({
         key: a.handle, handle: a.handle, name: a.name,
+        // Connecting Slack will list its accounts here too, so the platform
+        // marker is driven off the account rather than assumed to be X.
+        iconX: a.platform === 'slack' ? 'none' : 'flex',
+        iconSlack: a.platform === 'slack' ? 'flex' : 'none',
         imgRef: (el) => { if (el) el.src = this.avatar(a.handle); },
         onRemove: () => {
           const snap = { accounts: this.accounts(), autos: this.autos(), events: this.events(), actAccounts: this.state.actAccounts };
@@ -521,7 +634,7 @@ class Component extends DCLogic {
           this.setState({
             accounts: remaining,
             autos: this.autos().filter((x) => x.account !== a.handle),
-            events: [this.ev(a.handle, 'Account removed')].concat(this.events()),
+            events: [this.ev(a.handle, 'Account removed', 'acctRemoved')].concat(this.events()),
             // A removed account must not go on filtering the activity list.
             actAccounts: this.state.actAccounts.filter((h) => h !== a.handle),
           });
@@ -543,7 +656,9 @@ class Component extends DCLogic {
             iconC: e2.kind === 'sched' ? 'flex' : 'none',
             iconP: e2.kind === 'autoAdded' ? 'flex' : 'none',
             iconA: e2.kind === 'acctAdded' ? 'flex' : 'none',
+            iconR: e2.kind === 'acctRemoved' ? 'flex' : 'none',
             iconS: e2.kind === 'system' ? 'flex' : 'none',
+            iconL: e2.kind === 'live' ? 'flex' : 'none',
             textColor: this.eventTone(e2.kind),
             chipDisplay: e2.target ? 'flex' : 'none',
             chipName: e2.target ? this.userName(e2.target) : '',
@@ -563,7 +678,7 @@ class Component extends DCLogic {
                 // fall back to its account's section rather than dead-ending.
                 const a = this.autos().find((x) => x.id === link.autoId);
                 this.setState(a
-                  ? { view: 'automations', modal: { step: 'config', account: a.account, id: a.id, msg: a.msg, delay: a.delay, menu: null } }
+                  ? { view: 'automations', modal: this.configFor(a) }
                   : { view: 'automations' });
               }
             },
@@ -575,36 +690,41 @@ class Component extends DCLogic {
       actTypeLabel: everyType ? 'All activity' : (actTypes.length === 1 ? TYPE_LABELS[actTypes[0]] : actTypes.length + ' types'),
       toggleTypeMenu: (e) => { e.stopPropagation(); this.setState({ actMenu: this.state.actMenu === 'type' ? null : 'type' }); },
       showTypeMenu: this.state.actMenu === 'type',
-      typeFilterOpts: ['all', 'follow', 'dm', 'system'].map((t) => ({
+      // No "All activity" row. An empty filter already means everything, so
+      // every option just reads as checked and you uncheck to narrow.
+      typeFilterOpts: ALL_TYPES.map((t) => ({
         key: t,
-        label: t === 'all' ? 'All activity' : TYPE_LABELS[t],
-        checkOpacity: (t === 'all' ? everyType : actTypes.indexOf(t) !== -1) ? 1 : 0,
+        label: TYPE_LABELS[t],
+        checkOpacity: (everyType || actTypes.indexOf(t) !== -1) ? 1 : 0,
         onPick: (e) => {
           e.stopPropagation();
-          if (t === 'all') { this.setState({ actTypes: [] }); return; }
-          const next = actTypes.indexOf(t) !== -1 ? actTypes.filter((x) => x !== t) : actTypes.concat([t]);
-          this.setState({ actTypes: next.length === 3 ? [] : next });
+          const cur = everyType ? ALL_TYPES : actTypes;
+          const next = cur.indexOf(t) !== -1 ? cur.filter((x) => x !== t) : cur.concat([t]);
+          // Unchecking the last one would leave nothing to show, so it means all.
+          this.setState({ actTypes: next.length === 0 || next.length === ALL_TYPES.length ? [] : next });
         },
       })),
       actAccountLabel: everyAccount ? 'All accounts' : (actAccounts.length === 1 ? actAccounts[0] : actAccounts.length + ' accounts'),
       toggleActMenu: (e) => { e.stopPropagation(); this.setState({ actMenu: this.state.actMenu === 'accounts' ? null : 'accounts' }); },
       showActMenu: this.state.actMenu === 'accounts',
-      accountFilterOpts: ['all'].concat(this.accounts().map((a) => a.handle)).map((h) => ({
+      // Same here — no "All accounts" row, every account starts checked.
+      accountFilterOpts: this.accounts().map((a) => a.handle).map((h) => ({
         key: h,
-        label: h === 'all' ? 'All accounts' : this.accountName(h),
-        handle: h === 'all' ? '' : h,
-        avatarDisplay: h === 'all' ? 'none' : 'block',
-        handleDisplay: h === 'all' ? 'none' : 'inline',
-        badgeDisplay: h === 'all' ? 'none' : 'flex',
-        imgRef: (el) => { if (el && h !== 'all') el.src = this.avatar(h); },
-        checkOpacity: (h === 'all' ? everyAccount : actAccounts.indexOf(h) !== -1) ? 1 : 0,
+        label: this.accountName(h),
+        handle: h,
+        avatarDisplay: 'block',
+        handleDisplay: 'inline',
+        badgeDisplay: 'flex',
+        imgRef: (el) => { if (el) el.src = this.avatar(h); },
+        checkOpacity: (everyAccount || actAccounts.indexOf(h) !== -1) ? 1 : 0,
         // The menu stays open on pick — the point of multiselect is stacking
         // choices without reopening it each time.
         onPick: (e) => {
           e.stopPropagation();
-          if (h === 'all') { this.setState({ actAccounts: [] }); return; }
-          const next = actAccounts.indexOf(h) !== -1 ? actAccounts.filter((x) => x !== h) : actAccounts.concat([h]);
-          this.setState({ actAccounts: next.length === this.accounts().length ? [] : next });
+          const all = this.accounts().map((a) => a.handle);
+          const cur = everyAccount ? all : actAccounts;
+          const next = cur.indexOf(h) !== -1 ? cur.filter((x) => x !== h) : cur.concat([h]);
+          this.setState({ actAccounts: next.length === 0 || next.length === all.length ? [] : next });
         },
       })),
       eatMenuClick: (e) => e.stopPropagation(),
@@ -619,55 +739,99 @@ class Component extends DCLogic {
       stepConfig: inConfig,
       stepLive: !!m && m.step === 'live',
       comingSoon: (this.props.showComingSoon ?? true) ? [
-        { key: 'c1', title: 'Auto-comment on your posts', desc: 'Adds your comment under every new post', icon: 'comment' },
-        { key: 'c2', title: 'Message after keyword comment', desc: 'Messages anyone who comments your keyword on a post', icon: 'keyword' },
+        { key: 'c1', title: 'Message to Slack channel after post', desc: 'Posts a message to your Slack channel when you publish', icon: 'slack' },
+        { key: 'c2', title: 'Auto-comment on your posts', desc: 'Adds your comment under every new post', icon: 'comment' },
         { key: 'c3', title: 'Auto-repost', desc: 'Reposts your new post from your other accounts', icon: 'repost' },
       ].map((c) => Object.assign({}, c, {
+        iconSlack: c.icon === 'slack' ? 'flex' : 'none',
         iconComment: c.icon === 'comment' ? 'flex' : 'none',
-        iconKeyword: c.icon === 'keyword' ? 'flex' : 'none',
         iconRepost: c.icon === 'repost' ? 'flex' : 'none',
       })) : [],
       liveCopy: (() => {
         if (!m || m.step !== 'live') return '';
         const a = this.autos().find((x) => x.id === m.id) || {};
-        return a.kind === 'slack'
-          ? 'Every new post from ' + (a.account || '') + ' will be announced in ' + (a.channel || 'your Slack channel') + '.'
-          : 'The message will start sending automatically when someone new follows ' + (a.account || '') + '.';
+        const k = this.kindOf(a);
+        if (k === 'slack') return 'Every new post from ' + (a.account || '') + ' will be announced in ' + (a.channel || 'your Slack channel') + '.';
+        if (k === 'keyword') {
+          const where = a.scope === 'post' ? 'the post you linked' : 'any post from ' + (a.account || '');
+          const reply = (a.reply || '').trim();
+          return 'The message will start sending automatically when someone replies with “' + (a.keyword || '') + '” on ' + where + '.'
+            + (reply ? ' They will also get “' + reply + '” as a public reply.' : '');
+        }
+        return 'The message will start sending automatically when someone new follows ' + (a.account || '') + '.';
       })(),
       confirmLive: () => {
         const a = this.autos().find((x) => x.id === m.id);
         if (!a) { this.setState({ modal: null }); return; }
         this.setState({
-          autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: true, everLive: true, updated: 'now' }) : x),
-          events: [this.ev(a.account, 'Automation set live')].concat(this.events()),
+          autos: this.autos().map((x) => x.id === a.id ? Object.assign({}, x, { active: true, everLive: true }) : x),
+          events: [this.ev(a.account, 'Automation set live', 'live')].concat(this.events()),
           modal: null,
         });
       },
-      configLabel: inConfig && m.id ? 'Edit automation' : 'New automation',
       pickDmType: () => this.setState({ modal: { step: 'config', kind: 'dm', account: m.account, id: null, msg: '', delay: 5, menu: null } }),
+      pickKeywordType: () => this.setState({ modal: { step: 'config', kind: 'keyword', account: m.account, id: null, msg: '', delay: 5, keyword: '', scope: 'any', postUrl: '', reply: '', menu: null } }),
+      // Slack is listed as coming soon for now. Its flow stays wired so the card
+      // can be switched back on by pointing it here again.
       pickSlackType: () => this.setState({ modal: { step: 'config', kind: 'slack', account: m.account, id: null, msg: '', channel: this.slackChannels()[0], menu: null } }),
       msgVal: inConfig ? m.msg : '',
       setMsg: (e) => set({ msg: e.target.value }),
-      msgRef: (el) => { this._msgEl = el; },
+      // Focus is tracked on the elements themselves rather than through a
+      // binding, so the variable chips can target whichever box was last in use.
+      msgRef: (el) => { this._msgEl = this.trackFocus(el); },
       mirrorRef: (el) => { this._mirrorEl = el; },
       onMsgScroll: (e) => { if (this._mirrorEl) this._mirrorEl.scrollTop = e.target.scrollTop; },
-      msgSegs: ((inConfig && m.msg) || '').split(/(\{name\}|\{handle\}|\{link\})/).filter((s) => s !== '').map((s, i) => {
-        const isVar = s === '{name}' || s === '{handle}' || s === '{link}';
-        return { key: i, t: s, col: isVar ? '#2f5fc4' : '#111111', bg: isVar ? 'rgba(47, 95, 196, 0.08)' : 'transparent' };
-      }),
+      replyRef: (el) => { this._replyEl = this.trackFocus(el); },
+      replyMirrorRef: (el) => { this._replyMirrorEl = el; },
+      onReplyScroll: (e) => { if (this._replyMirrorEl) this._replyMirrorEl.scrollTop = e.target.scrollTop; },
+      msgSegs: this.segsOf(inConfig && m.msg),
+      replySegs: this.segsOf(inConfig && m.reply),
       varOpts: (isSlack ? [['{link}', 'Link'], ['{handle}', 'Handle']] : [['{name}', 'Name'], ['{handle}', 'Handle']]).map((v) => ({
         token: v[0],
         onInsert: (ce) => {
           ce.stopPropagation();
-          const el = this._msgEl, cur = (inConfig && m.msg) || '';
+          // One chip row serves both boxes: it writes into the last one focused,
+          // and falls back to the message, which is the one that must be filled.
+          const toReply = isKeyword && !!this._replyEl && this._focusedEl === this._replyEl;
+          const el = toReply ? this._replyEl : this._msgEl;
+          const cur = (inConfig && (toReply ? m.reply : m.msg)) || '';
           const a = el && el.selectionStart != null ? el.selectionStart : cur.length;
           const b = el && el.selectionEnd != null ? el.selectionEnd : a;
-          set({ msg: cur.slice(0, a) + v[0] + cur.slice(b) });
+          const next = cur.slice(0, a) + v[0] + cur.slice(b);
+          set(toReply ? { reply: next } : { msg: next });
           setTimeout(() => { if (el) { el.focus(); el.selectionStart = el.selectionEnd = a + v[0].length; } }, 0);
         },
       })),
       // One chip serves both types: a delay for DMs, a channel for Slack.
-      triggerCopy: isSlack ? 'When you publish a post' : 'When someone new follows the account',
+      // The trigger names the account as its X profile: each account has its own
+      // Add button now, so the modal says which one it was opened from.
+      isKeyword,
+      isSlack,
+      triggerPre: isSlack ? 'When' : (isKeyword ? 'When someone replies with' : 'When someone new follows'),
+      cfgName: inConfig ? this.accountName(m.account) : '',
+      cfgHandle: inConfig ? m.account : '',
+      cfgImgRef: (el) => { if (el && inConfig) el.src = this.avatar(m.account); },
+      kwVal: inConfig ? (m.keyword || '') : '',
+      setKw: (e) => set({ keyword: e.target.value }),
+      isOnePost,
+      scopeLabel: scope === 'post' ? 'a specific' : 'any',
+      toggleScopeMenu: (e) => { e.stopPropagation(); set({ menu: m.menu === 'scope' ? null : 'scope' }); },
+      showScopeMenu: inConfig && m.menu === 'scope',
+      scopeOpts: [['any', 'any'], ['post', 'a specific']].map((o) => ({
+        key: o[0],
+        label: o[1],
+        checkOpacity: scope === o[0] ? 1 : 0,
+        onPick: (e) => { e.stopPropagation(); set({ scope: o[0], menu: null }); },
+      })),
+      postUrlVal: inConfig ? (m.postUrl || '') : '',
+      setPostUrl: (e) => set({ postUrl: e.target.value }),
+      postUrlPlaceholder: 'https://x.com/' + ((inConfig && m.account) || '@slidehq').slice(1) + '/status/…',
+      // Left empty, nothing is posted publicly — only the DM goes out.
+      replyVal: inConfig ? (m.reply || '') : '',
+      setReply: (e) => set({ reply: e.target.value }),
+      replyPlaceholder: 'DM sent! Check your inbox 📩',
+      // The keyword field takes first focus when there is one.
+      msgAutoFocus: !isKeyword,
       chipLabel: !inConfig ? '' : (isSlack ? m.channel : this.delayPhrase(m.delay)),
       thenCopy: isSlack ? 'receives this message:' : (inConfig && m.delay === 0 ? 'send this message:' : 'then send this message:'),
       toggleChipMenu: (e) => { e.stopPropagation(); set({ menu: m.menu === 'chip' ? null : 'chip' }); },
@@ -675,7 +839,7 @@ class Component extends DCLogic {
       chipOpts: isSlack
         ? this.slackChannels().map((c) => ({ key: c, label: c, checkOpacity: m.channel === c ? 1 : 0, onPick: (e) => { e.stopPropagation(); set({ channel: c, menu: null }); } }))
         : [0, 1, 5, 15, 60].map((d) => ({ key: d, label: this.delayPhrase(d), checkOpacity: inConfig && m.delay === d ? 1 : 0, onPick: (e) => { e.stopPropagation(); set({ delay: d, menu: null }); } })),
-      msgPlaceholder: isSlack ? 'New post is live {link}' : 'Hey there 👋 Thanks for following!',
+      msgPlaceholder: isSlack ? 'New post is live {link}' : (isKeyword ? 'Hey there 👋 Here’s the link you asked for' : 'Hey there 👋 Thanks for following!'),
       varsLabel: isSlack ? 'Insert from post' : 'Insert from profile',
       showDelete: inConfig && !!m.id,
       deleteAuto: () => {
@@ -697,16 +861,16 @@ class Component extends DCLogic {
         const snap = { autos: this.autos(), events: this.events() };
         if (m.id) {
           this.setState({
-            autos: this.autos().map((x) => x.id === m.id ? Object.assign({}, x, { msg: m.msg, delay: m.delay, channel: m.channel, updated: 'now' }) : x),
-            events: [this.ev(m.account, 'Automation updated · ' + (isSlack ? 'Message to Slack channel after post' : 'Send message to new followers'))].concat(this.events()),
+            autos: this.autos().map((x) => x.id === m.id ? Object.assign({}, x, { msg: m.msg, delay: m.delay, channel: m.channel, keyword: m.keyword, scope: m.scope, postUrl: m.postUrl, reply: m.reply }) : x),
+            events: [this.ev(m.account, 'Automation updated · ' + TYPE_NAMES[kind])].concat(this.events()),
             modal: null,
           });
           this.showToast('Automation updated', snap);
         } else {
           const newId = Date.now();
-          const type = isSlack ? 'Message to Slack channel after post' : 'Send message to new followers';
+          const type = TYPE_NAMES[kind];
           this.setState({
-            autos: this.autos().concat([{ id: newId, kind: m.kind, type, account: m.account, delay: m.delay, channel: m.channel, active: false, everLive: false, updated: 'now', msg: m.msg }]),
+            autos: this.autos().concat([{ id: newId, kind, type, account: m.account, delay: m.delay, channel: m.channel, keyword: m.keyword, scope: m.scope, postUrl: m.postUrl, reply: m.reply, active: false, everLive: false, msg: m.msg }]),
             events: [this.ev(m.account, 'Automation added · ' + type, 'autoAdded', { t: 'autos', account: m.account, autoId: newId })].concat(this.events()),
             modal: null,
           });

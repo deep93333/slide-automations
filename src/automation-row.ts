@@ -1,4 +1,4 @@
-// Three defects in the automations list, all rooted in the runtime dropping
+// Two defects in the automations list, both rooted in the runtime dropping
 // interpolated declarations rather than updating them.
 //
 // 1. The switch is invisible. Its template style is
@@ -7,14 +7,12 @@
 //    white knob on white.
 // 2. `Live` never goes away. Its `display: {{ liveDisplay }}` is removed
 //    outright when it resolves to `none`, so a paused automation still reads
-//    as live.
-// 3. Toggling shifts the row. `Live` appearing and the timestamp swapping `2d`
-//    for `now` both change the right cluster's width, and the flex:1
-//    description grows to absorb it.
+//    as live. And when it does appear it widens the right cluster, so the
+//    flex:1 description shrinks and the row shifts under the toggle.
 //
 // The knob's `left: {{ knobLeft }}` is the one interpolated value that survives
-// intact, so it drives all three: `:has()` reads the state off it, and the two
-// slots are reserved so nothing moves when it flips.
+// intact, so it drives both: `:has()` reads the state off it, and the `Live`
+// slot is reserved so nothing moves when it flips.
 
 // 3:1 against white — the bar for a UI component rather than text.
 const TRACK_ON = "#00aa72";
@@ -34,7 +32,6 @@ style.textContent = `
   [data-automation-row]:has([data-automation-toggle] > [style*="left: 14px"]) [data-automation-live] {
     visibility: visible;
   }
-  [data-automation-updated] { min-width: 32px; text-align: right; }
 `;
 
 // The bundler swaps the whole documentElement once the payload unpacks, which
@@ -59,9 +56,6 @@ const tagRow = (element: HTMLElement) => {
   const live = element.previousElementSibling;
   if (!(live instanceof HTMLElement) || live.textContent?.trim() !== "Live") return;
   live.dataset.automationLive = "";
-
-  const updated = live.previousElementSibling;
-  if (updated instanceof HTMLElement) updated.dataset.automationUpdated = "";
 };
 
 const tagTree = (root: ParentNode) => {

@@ -1,10 +1,32 @@
 import { animate } from "motion/mini";
 
-// Entrance transitions only. Nothing moves in response to the cursor —
-// buttons, rows and cards all announce hover by changing colour instead,
-// so no element shifts under the pointer.
+// Entrance transitions, plus a press. Nothing moves when the cursor merely
+// passes over — buttons, rows and cards announce hover by changing colour, so
+// no element shifts under the pointer — but anything clickable dips 1px while
+// it is held down, so a click is answered even when its result lands
+// somewhere else on the page.
 const softEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const settleTransition = { duration: 0.16, ease: softEase };
+
+// The template marks its clickables with `cursor: pointer`, and the runtime
+// writes that into the style attribute, so it doubles as the selector.
+// `:active` runs up the ancestor chain, so the `:has()` guard keeps a row
+// still while the switch inside it is the thing being pressed.
+const pressStyle = document.createElement("style");
+pressStyle.textContent = `
+  [style*="cursor: pointer"] { transition: transform 80ms cubic-bezier(0.2, 0, 0, 1); }
+  [style*="cursor: pointer"]:active:not(:has([style*="cursor: pointer"]:active)) { transform: translateY(1px); }
+  @media (prefers-reduced-motion: reduce) {
+    [style*="cursor: pointer"], [style*="cursor: pointer"]:active { transition: none; transform: none; }
+  }
+`;
+
+// The bundler swaps the whole documentElement once the payload unpacks, which
+// takes the head — and this stylesheet — with it. Observing `document` itself
+// outlives that, so re-attach on the way past.
+const attachPressStyle = () => {
+  if (!pressStyle.isConnected) document.head.append(pressStyle);
+};
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const entered = new WeakSet<HTMLElement>();
@@ -106,6 +128,7 @@ const enhanceTree = (root: ParentNode) => {
 };
 
 const observer = new MutationObserver((records) => {
+  attachPressStyle();
   for (const record of records) {
     for (const node of record.addedNodes) {
       if (node instanceof Element) enhanceTree(node);
@@ -113,5 +136,6 @@ const observer = new MutationObserver((records) => {
   }
 });
 
+attachPressStyle();
 enhanceTree(document);
 observer.observe(document, { childList: true, subtree: true });
