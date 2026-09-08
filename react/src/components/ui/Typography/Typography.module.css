@@ -1,0 +1,12 @@
+.pageTitle {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text-body);
+}
+
+.sectionLabel {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-faint);
+}

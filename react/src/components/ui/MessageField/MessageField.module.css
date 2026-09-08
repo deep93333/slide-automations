@@ -1,0 +1,50 @@
+.box {
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-subtle);
+  padding: 12px 14px;
+}
+
+.stack {
+  position: relative;
+}
+
+/*
+ * The text you see is the mirror: a transparent textarea sits on top of it,
+ * so tokens can be tinted while the box still edits like a plain field.
+ */
+.mirror,
+.textarea {
+  position: absolute;
+  inset: 0;
+  font-family: inherit;
+  font-size: var(--text-base);
+  line-height: var(--leading-editor);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.mirror {
+  overflow: hidden;
+  color: var(--color-text);
+  pointer-events: none;
+}
+
+.token {
+  color: var(--color-token);
+  background: var(--color-token-bg);
+  border-radius: 4px;
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  resize: none;
+  color: transparent;
+  caret-color: var(--color-text);
+  background: transparent;
+}

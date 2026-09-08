@@ -1,0 +1,12 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.badge {
+  position: absolute;
+  display: flex;
+  background: var(--color-bg);
+  border-radius: 50%;
+  padding: 0.5px;
+}

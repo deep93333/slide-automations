@@ -1,0 +1,129 @@
+.groups {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.rows {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty {
+  margin-top: 16px;
+}
+
+.noAccounts {
+  margin-top: 36px;
+  color: var(--color-text-faint);
+}
+
+/*
+ * The row is one click target that also holds a switch. The edit control is
+ * stretched over the whole card with a pseudo-element, and the switch sits
+ * above it, so neither is nested inside the other.
+ */
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  transition: transform var(--duration-press) var(--ease-press);
+}
+
+.row:has(.edit:hover) {
+  border-color: var(--color-border-hover);
+}
+
+.row:has(.edit:active) {
+  transform: translateY(1px);
+}
+
+.row:has(.edit:focus-visible) {
+  outline: 2px solid var(--color-verified);
+  outline-offset: 2px;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.edit:focus-visible {
+  outline: none;
+}
+
+.edit:active {
+  transform: none;
+}
+
+.edit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.preview {
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The slot is reserved even while hidden, so the row does not shift when the switch flips. */
+.live {
+  min-width: 24px;
+  flex-shrink: 0;
+  color: var(--color-success-text);
+  font-size: var(--text-sm);
+  text-align: right;
+  visibility: hidden;
+}
+
+.liveOn {
+  visibility: visible;
+}
+
+.toggle {
+  position: relative;
+  z-index: 1;
+}

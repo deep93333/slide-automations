@@ -1,0 +1,46 @@
+/*
+ * Avatar, name, badge and handle at one size everywhere. The root is 12px, so
+ * the container names its own size and the text inherits it. Name and handle
+ * share the size — only weight and colour separate them, as in an x.com post
+ * header — so the handle never steps down.
+ */
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6.5px;
+  min-width: 0;
+  font-size: var(--text-md);
+}
+
+.name {
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/*
+ * The badge tucks against the name and sits a full gap from the handle. The
+ * leading margin closes the 6.5px flex gap to 3px; the trailing one leaves
+ * 5.5px, which to the eye is the same gap the handle has from the name on an
+ * unverified row. It belongs on the badge, not the handle: a hidden badge
+ * contributes no margin, so the handle falls back to the plain gap by itself.
+ */
+.badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-left: -3.5px;
+  margin-right: -1px;
+}
+
+.handle {
+  position: relative;
+  top: -1px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.truncate {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

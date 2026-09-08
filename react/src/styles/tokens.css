@@ -1,0 +1,95 @@
+/*
+ * Design tokens. Every colour, size and radius the components use lives here,
+ * named for its role rather than its value, so a change lands everywhere at
+ * once and a one-off can be spotted as a hard-coded value in a module.
+ */
+:root {
+  --font-sans: "Inter", -apple-system, "Helvetica Neue", sans-serif;
+
+  /* Type scale. The root is 12px; the profile lockup and the modal sentence sit one step up. */
+  --text-xs: 11px;
+  --text-sm: 11.5px;
+  --text-base: 12px;
+  --text-md: 13px;
+  --text-lg: 13.5px;
+  --text-xl: 15px;
+  --text-logo: 19px;
+  --leading: 1.55;
+  --leading-editor: 1.6;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #fafafa;
+  --color-bg-hover: #f6f6f6;
+  --color-bg-row-hover: #f7f7f7;
+  --color-bg-disabled: #f2f2f2;
+  --color-bg-avatar: #ececec;
+  --color-bg-inverse: #111111;
+  --color-bg-inverse-hover: #2a2a2e;
+  --color-overlay: rgba(246, 246, 246, 0.88);
+
+  /* Text, darkest to lightest. All meet WCAG AA against white where they carry meaning. */
+  --color-text: #111111;
+  --color-text-body: #0a0a0a;
+  --color-text-inverse: #ffffff;
+  --color-text-secondary: #767676;
+  --color-text-tertiary: #8c8c8c;
+  --color-text-muted: #a3a3a3;
+  --color-text-placeholder: #b4b4b4;
+  --color-text-hint: #c2c2c2;
+  --color-text-faint: #c7c7c7;
+  --color-icon-quiet: #bfbfbf;
+
+  /* Borders */
+  --color-border: #ebebeb;
+  --color-border-input: #e8e8e8;
+  --color-border-soft: #ececec;
+  --color-border-faint: #f0f0f0;
+  --color-border-hover: #d5d5d5;
+  --color-border-strong: #c7c7c7;
+
+  /* Accents */
+  --color-verified: #1d9bf0;
+  --color-success: #00ba7c;
+  --color-success-hover: #00a06e;
+  --color-success-text: #00875a;
+  --color-switch-on: #00aa72; /* 3:1 against white, the bar for a UI component */
+  --color-switch-off: #cfcfcf;
+  --color-danger: #ee000f;
+  --color-danger-hover: #b8000c;
+  --color-info-text: #497aab;
+  --color-info-icon: #6e98c1;
+  --color-token: #2f5fc4;
+  --color-token-bg: rgba(47, 95, 196, 0.08);
+  --color-token-bg-hover: rgba(47, 95, 196, 0.14);
+  --color-selection: rgba(29, 155, 240, 0.22);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 7px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+  --radius-3xl: 14px;
+  --radius-full: 999px;
+
+  --shadow-knob: 0 1px 2px rgba(0, 0, 0, 0.16);
+
+  /* Motion */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press: cubic-bezier(0.2, 0, 0, 1);
+  --duration-press: 80ms;
+  --duration-switch: 150ms;
+
+  /* Stacking */
+  --z-fade: 2;
+  --z-menu: 6;
+  --z-modal: 10;
+  --z-modal-menu: 20;
+  --z-toast: 40;
+
+  /* Layout */
+  --layout-sidebar-x: 36px;
+  --layout-main-offset: clamp(260px, 38vw, 540px);
+  --layout-main-max: 620px;
+}

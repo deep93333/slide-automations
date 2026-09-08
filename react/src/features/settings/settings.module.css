@@ -1,0 +1,52 @@
+.sectionLabel {
+  margin-top: 44px;
+}
+
+.accounts {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.accountRow {
+  display: flex;
+  align-items: center;
+  gap: 6.5px;
+  width: 100%;
+}
+
+/* The platform marker sits ahead of the lockup in a fixed slot, so avatars stay in one column whatever mix is listed. */
+.platform {
+  margin-right: 2px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.addAccount {
+  margin-top: 6px;
+}
+
+.divider {
+  margin-top: 36px;
+}
+
+.session {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.danger {
+  margin-top: 32px;
+}
+
+.dangerHint {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}

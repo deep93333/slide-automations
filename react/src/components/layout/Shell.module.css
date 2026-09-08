@@ -1,0 +1,7 @@
+.main {
+  position: relative;
+  z-index: 1;
+  margin-left: var(--layout-main-offset);
+  max-width: var(--layout-main-max);
+  padding: 76px 56px 96px 0;
+}

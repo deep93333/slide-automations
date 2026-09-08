@@ -1,0 +1,16 @@
+.placeholder {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 22px 24px;
+  border: 1px dashed var(--color-border-input);
+  border-radius: var(--radius-2xl);
+  background: none;
+  color: var(--color-text-hint);
+  cursor: pointer;
+}
+
+.placeholder:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-secondary);
+}

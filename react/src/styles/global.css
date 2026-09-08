@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  color: var(--color-text-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+p,
+hr {
+  margin: 0;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-text-secondary);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-selection);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-verified);
+  outline-offset: 2px;
+}
+
+/*
+ * Press. Nothing moves when the cursor merely passes over — hover is announced
+ * by colour — but anything clickable dips 1px while held, so a click is
+ * answered even when its result lands elsewhere on the page. An element that
+ * contains the pressed control (a row around a switch) stays still.
+ */
+button,
+a,
+[role="button"] {
+  transition: transform var(--duration-press) var(--ease-press);
+}
+
+:where(button, a, [role="button"]):active:not(:disabled):not(:has(button:active, a:active)) {
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button,
+  a,
+  [role="button"] {
+    transition: none;
+    transform: none !important;
+  }
+}

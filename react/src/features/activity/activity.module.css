@@ -1,0 +1,101 @@
+/*
+ * The filters sit on the title's baseline, not its centre: they are 11.5px
+ * against a 15px heading, so centring the line boxes leaves them visibly high.
+ */
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.divider {
+  margin-top: 20px;
+}
+
+.list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day {
+  margin: 14px 0 10px;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 -8px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+.linked {
+  cursor: pointer;
+}
+
+.linked:hover {
+  background: var(--color-bg-row-hover);
+  color: inherit;
+}
+
+.account {
+  min-width: 92px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.text {
+  flex-shrink: 0;
+}
+
+.toneDefault {
+  color: var(--color-text);
+}
+
+.tonePending {
+  color: var(--color-text-tertiary);
+}
+
+.toneHousekeeping {
+  color: var(--color-info-text);
+}
+
+.detail {
+  flex-shrink: 0;
+  color: var(--color-text-faint);
+}
+
+.time {
+  flex-shrink: 0;
+  color: var(--color-text-faint);
+}
+
+.empty {
+  color: var(--color-text-faint);
+}
+
+/* Softens the last lines of a long list into the page edge. */
+.fade {
+  position: fixed;
+  left: var(--layout-main-offset);
+  right: 0;
+  bottom: 0;
+  height: 76px;
+  background: linear-gradient(to top, var(--color-bg), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  z-index: var(--z-fade);
+}

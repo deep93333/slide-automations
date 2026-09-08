@@ -1,0 +1,14 @@
+.chip {
+  padding: 2px 9px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-token-bg);
+  color: var(--color-token);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.chip:hover {
+  background: var(--color-token-bg-hover);
+}

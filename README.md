@@ -5,6 +5,14 @@ bun install
 bun run dev
 ```
 
+## The React rewrite
+
+`react/` is the same app rebuilt as a Vite + React 19 + TypeScript project with
+a design system, typed state and tests. It is self-contained: `cd react && bun
+install && bun run dev` serves it on port 5174, and its own README covers the
+structure. The prototype below stays the source of truth for the design until
+the React app takes over.
+
 ## Layout
 
 `index.html` is a bundled export: the entire app — markup *and* component logic —

@@ -1,0 +1,161 @@
+/* Type picker */
+.typeList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+.typeOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.typeOption:hover {
+  border-color: var(--color-border-hover);
+  background: var(--color-bg-subtle);
+}
+
+.typeOptionSoon {
+  border-color: var(--color-border-faint);
+  opacity: 0.55;
+  user-select: none;
+}
+
+.typeGlyph {
+  margin-top: 1px;
+}
+
+.typeBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.typeTitle {
+  display: block;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.typeDescription {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.soon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+/*
+ * Config. The trigger is a sentence in two atomic clauses: it is too long for
+ * one line at this width, so it breaks between "replies with {keyword}" and
+ * "on {which} {who} post" rather than after a stranded preposition.
+ */
+.sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 9px;
+  font-size: var(--text-md);
+}
+
+.clause {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.postUrl {
+  margin-top: 10px;
+}
+
+.chipRow {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-md);
+}
+
+.composer {
+  margin-top: 14px;
+}
+
+.tokens {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tokensLabel {
+  margin-right: 6px;
+  color: var(--color-text-hint);
+  font-size: var(--text-sm);
+}
+
+.replyLine {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--text-md);
+}
+
+.optional {
+  color: var(--color-text-hint);
+  font-size: var(--text-sm);
+}
+
+.replyComposer {
+  margin-top: 10px;
+}
+
+.footer {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Go-live confirmation */
+.liveTitle {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.liveCopy {
+  margin-top: 8px;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.liveActions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding-bottom: 4px;
+}
