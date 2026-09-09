@@ -42,7 +42,7 @@ export function ConfigStep({ draft, menu }: ConfigStepProps) {
     : draft.delay === 0
       ? "send this message:"
       : "then send this message:";
-  const tokens = isSlack ? ["{link}", "{handle}"] : ["{name}", "{handle}"];
+  const tokens = isSlack ? ["{link}", "{username}"] : ["{name}", "{username}"];
 
   return (
     <>
@@ -114,7 +114,6 @@ export function ConfigStep({ draft, menu }: ConfigStepProps) {
       </div>
 
       <div className={styles.tokens}>
-        <span className={styles.tokensLabel}>{isSlack ? "Insert from post" : "Insert from profile"}</span>
         {tokens.map((token) => (
           <TokenChip key={token} token={token} onInsert={insertToken} />
         ))}

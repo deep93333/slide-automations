@@ -125,7 +125,7 @@
                 <img ref="{{ g.imgRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
                 <span style="font-weight: 500; color: #111111; white-space: nowrap;">{{ g.name }}</span>
                 <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
-                <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap;">{{ g.handle }}</span>
+                <span style="color: #a3a3a3; white-space: nowrap;">{{ g.handle }}</span>
                 <div style="flex: 1;"></div>
                 <div sc-camel-on-click="{{ g.onAdd }}" style="display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 7px; background: #111111; color: #ffffff; font-size: 11.5px; cursor: pointer; user-select: none; flex-shrink: 0;" style-hover="background: #2a2a2e;"><svg data-icon="plus" width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg><span>Add automation</span></div>
               </div>
@@ -195,7 +195,7 @@
                       <img ref="{{ opt.imgRef }}" alt="" style="display: {{ opt.avatarDisplay }}; width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0;">
                       <span style="font-weight: 500; white-space: nowrap;">{{ opt.label }}</span>
                       <span style="display: {{ opt.badgeDisplay }}; align-items: center; flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
-                      <span style="display: {{ opt.handleDisplay }}; color: #a3a3a3; position: relative; top: -1px; white-space: nowrap;">{{ opt.handle }}</span>
+                      <span style="display: {{ opt.handleDisplay }}; color: #a3a3a3; white-space: nowrap;">{{ opt.handle }}</span>
                     </span>
                     <span style="display: flex; align-items: center; opacity: {{ opt.checkOpacity }};"><svg data-icon="check" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"></path></svg></span>
                   </div>
@@ -224,7 +224,7 @@
                   <img ref="{{ ev.chipRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
                   <span style="color: #111111; font-weight: 500; white-space: nowrap;">{{ ev.chipName }}</span>
                   <span style="display: {{ ev.chipBadge }}; align-items: center; flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg></span>
-                  <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ ev.chipHandle }}</span>
+                  <span style="color: #a3a3a3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;">{{ ev.chipHandle }}</span>
                 </span>
                 <span style="display: {{ ev.detailDisplay }}; color: #c7c7c7; flex-shrink: 0;">{{ ev.detail }}</span>
                 <div style="flex: 1;"></div>
@@ -250,7 +250,7 @@
               <img ref="{{ sa.imgRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
               <span style="font-weight: 500; color: #111111; white-space: nowrap;">{{ sa.name }}</span>
               <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
-              <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap;">{{ sa.handle }}</span>
+              <span style="color: #a3a3a3; white-space: nowrap;">{{ sa.handle }}</span>
               <div style="flex: 1;"></div>
               <div sc-camel-on-click="{{ sa.onRemove }}" style="color: #ee000f; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="color: #b8000c;">Remove</div>
             </div>
@@ -337,7 +337,7 @@
                 <img ref="{{ cfgImgRef }}" alt="" style="width: 17px; height: 17px; border-radius: 8.5px; background: #ececec; flex-shrink: 0; display: block;">
                 <span style="font-weight: 500; color: #111111; white-space: nowrap;">{{ cfgName }}</span>
                 <svg data-icon="verified" width="12" height="12" sc-camel-view-box="0 0 24 24" fill="#1d9bf0" style="flex-shrink: 0; margin-left: -3.5px; margin-right: -1px;"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></svg>
-                <span style="position: relative; top: -1px; color: #a3a3a3; white-space: nowrap;">{{ cfgHandle }}</span>
+                <span style="color: #a3a3a3; white-space: nowrap;">{{ cfgHandle }}</span>
               </span>
               <sc-if value="{{ isKeyword }}" hint-placeholder-val="{{ false }}">
                 <span>post</span>
@@ -378,7 +378,6 @@
             </div>
           </div>
           <div style="position: relative; display: flex; align-items: center; gap: 8px; margin-top: 10px;">
-            <div style="color: #c2c2c2; font-size: 11.5px; margin-right: 6px;">{{ varsLabel }}</div>
             <sc-for list="{{ varOpts }}" as="v" hint-placeholder-count="2">
               <div sc-camel-on-click="{{ v.onInsert }}" style="position: relative; color: #2f5fc4; background: rgba(47, 95, 196, 0.08); padding: 2px 9px; border-radius: 6px; font-size: 11.5px; cursor: pointer; user-select: none;" style-hover="background: rgba(47, 95, 196, 0.14);">{{ v.token }}</div>
             </sc-for>
@@ -483,8 +482,8 @@ class Component extends DCLogic {
   // Splits a message into plain and token runs for the mirror layer that sits
   // under a transparent textarea. Shared so the reply highlights like the DM.
   segsOf(text) {
-    return (text || '').split(/(\{name\}|\{handle\}|\{link\})/).filter((s) => s !== '').map((s, i) => {
-      const isVar = s === '{name}' || s === '{handle}' || s === '{link}';
+    return (text || '').split(/(\{name\}|\{username\}|\{link\})/).filter((s) => s !== '').map((s, i) => {
+      const isVar = s === '{name}' || s === '{username}' || s === '{link}';
       return { key: i, t: s, col: isVar ? '#2f5fc4' : '#111111', bg: isVar ? 'rgba(47, 95, 196, 0.08)' : 'transparent' };
     });
   }
@@ -786,7 +785,7 @@ class Component extends DCLogic {
       onReplyScroll: (e) => { if (this._replyMirrorEl) this._replyMirrorEl.scrollTop = e.target.scrollTop; },
       msgSegs: this.segsOf(inConfig && m.msg),
       replySegs: this.segsOf(inConfig && m.reply),
-      varOpts: (isSlack ? [['{link}', 'Link'], ['{handle}', 'Handle']] : [['{name}', 'Name'], ['{handle}', 'Handle']]).map((v) => ({
+      varOpts: (isSlack ? [['{link}', 'Link'], ['{username}', 'Username']] : [['{name}', 'Name'], ['{username}', 'Username']]).map((v) => ({
         token: v[0],
         onInsert: (ce) => {
           ce.stopPropagation();
@@ -840,7 +839,6 @@ class Component extends DCLogic {
         ? this.slackChannels().map((c) => ({ key: c, label: c, checkOpacity: m.channel === c ? 1 : 0, onPick: (e) => { e.stopPropagation(); set({ channel: c, menu: null }); } }))
         : [0, 1, 5, 15, 60].map((d) => ({ key: d, label: this.delayPhrase(d), checkOpacity: inConfig && m.delay === d ? 1 : 0, onPick: (e) => { e.stopPropagation(); set({ delay: d, menu: null }); } })),
       msgPlaceholder: isSlack ? 'New post is live {link}' : (isKeyword ? 'Hey there 👋 Here’s the link you asked for' : 'Hey there 👋 Thanks for following!'),
-      varsLabel: isSlack ? 'Insert from post' : 'Insert from profile',
       showDelete: inConfig && !!m.id,
       deleteAuto: () => {
         const snap = { autos: this.autos(), events: this.events() };

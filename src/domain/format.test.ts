@@ -74,6 +74,11 @@ describe("segmentMessage", () => {
       { text: ", see ", token: false },
       { text: "{link}", token: true },
     ]);
+    expect(segmentMessage("Thanks {username}")).toEqual([
+      { text: "Thanks ", token: false },
+      { text: "{username}", token: true },
+    ]);
+    expect(segmentMessage("{handle} is not a token any more")[0].token).toBe(false);
   });
 });
 

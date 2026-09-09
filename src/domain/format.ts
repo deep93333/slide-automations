@@ -111,7 +111,7 @@ export function eventTone(kind: EventKind): EventTone {
   return eventGroup(kind) === "system" ? "housekeeping" : "default";
 }
 
-export const MESSAGE_TOKENS = ["{name}", "{handle}", "{link}"] as const;
+export const MESSAGE_TOKENS = ["{name}", "{username}", "{link}"] as const;
 export type MessageToken = (typeof MESSAGE_TOKENS)[number];
 
 export interface MessageSegment {
@@ -119,7 +119,7 @@ export interface MessageSegment {
   token: boolean;
 }
 
-const TOKEN_PATTERN = /(\{name\}|\{handle\}|\{link\})/;
+const TOKEN_PATTERN = /(\{name\}|\{username\}|\{link\})/;
 
 /** Splits a message into plain and token runs, for highlighting under the editor. */
 export function segmentMessage(text: string): MessageSegment[] {

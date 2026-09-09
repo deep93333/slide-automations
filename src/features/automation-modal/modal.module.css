@@ -104,12 +104,6 @@
   gap: 8px;
 }
 
-.tokensLabel {
-  margin-right: 6px;
-  color: var(--color-text-hint);
-  font-size: var(--text-sm);
-}
-
 .replyLine {
   margin-top: 12px;
   display: flex;

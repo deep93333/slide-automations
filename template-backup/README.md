@@ -97,7 +97,7 @@ row now sits a size above the event text beside it.
 | name | inherited 13px, `font-weight: 500`, `#111111` |
 | verified | `data-icon="verified"`, `width`/`height` `12` → renders 14px, `fill="#1d9bf0"` |
 | badge margins | `0 -1px 0 -3.5px` |
-| handle | inherited 13px, `#a3a3a3`, `top: -1px` |
+| handle | inherited 13px, `#a3a3a3`, no offset — same line box as the name, so centring the row puts both on one baseline |
 
 Name and handle share a size — only weight and colour separate them, which is
 what x.com does in a post header — so the handle never steps down.

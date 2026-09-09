@@ -32,9 +32,8 @@
   margin-right: -1px;
 }
 
+/* Same size and line box as the name, so centring the row puts both on one baseline. */
 .handle {
-  position: relative;
-  top: -1px;
   color: var(--color-text-muted);
   white-space: nowrap;
 }
